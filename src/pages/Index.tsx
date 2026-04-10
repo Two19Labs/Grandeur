@@ -269,7 +269,6 @@ const Home = () => {
           <p className="text-white/60 text-base md:text-lg max-w-2xl mx-auto mb-8">Delhi University's Oldest Consulting Society</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/projects" className="px-8 py-3.5 bg-secondary text-secondary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm">Our Projects</Link>
-            <Link to="/invicta" className="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-sm">Invicta</Link>
           </div>
         </motion.div>
       </div>
