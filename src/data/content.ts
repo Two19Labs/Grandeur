@@ -142,8 +142,8 @@ export const INSTITUTION_LOGOS = [
 ];
 
 export const FACULTY_ADVISORS = [
-  { name: "Mr. Tushar Marwaha", designation: "Faculty In-Charge" },
-  { name: "Dr. Sushmita", designation: "Faculty In-Charge" },
+  { name: "Mr. Tushar Marwaha", designation: "Faculty In-Charge", image: "team-tushar-marwaha" },
+  { name: "Dr. Sushmita", designation: "Faculty In-Charge", image: "team-sushmita" },
 ];
 
 export const TEAM_DATA = {

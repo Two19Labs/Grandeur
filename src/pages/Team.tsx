@@ -3,6 +3,13 @@ import SectionHeader from "@/components/SectionHeader";
 import ScrollReveal from "@/components/ScrollReveal";
 import { FACULTY_ADVISORS, TEAM_DATA } from "@/data/content";
 import { Linkedin, User } from "lucide-react";
+import teamTushar from "@/assets/team-tushar-marwaha.jpg";
+import teamSushmita from "@/assets/team-sushmita.jpg";
+
+const FACULTY_IMAGES: Record<string, string> = {
+  "team-tushar-marwaha": teamTushar,
+  "team-sushmita": teamSushmita,
+};
 
 interface Member {
   name: string;
@@ -59,11 +66,17 @@ const TeamCard = ({ member, size = "md" }: TeamCardProps) => {
   );
 };
 
-const FacultyCard = ({ member }: { member: Member }) => (
+const FacultyCard = ({ member }: { member: Member }) => {
+  const imgSrc = member.image ? FACULTY_IMAGES[member.image] : "";
+  return (
   <div className="card-base overflow-hidden group hover:border-primary/30 transition-all duration-300">
     <div className="pt-8 pb-4 flex flex-col items-center bg-gradient-to-b from-muted/60 to-transparent">
       <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-border group-hover:border-primary/40 transition-colors bg-muted flex items-center justify-center">
-        <User className="text-muted-foreground" size={30} />
+        {imgSrc ? (
+          <img src={imgSrc} alt={member.name} className="w-full h-full object-cover object-top" />
+        ) : (
+          <User className="text-muted-foreground" size={30} />
+        )}
       </div>
     </div>
     <div className="px-5 pb-6 text-center">
@@ -71,7 +84,8 @@ const FacultyCard = ({ member }: { member: Member }) => (
       <p className="text-foreground-secondary text-xs mt-0.5">{member.designation}</p>
     </div>
   </div>
-);
+  );
+};
 
 const Team = () => (
   <div>
