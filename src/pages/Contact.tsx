@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import PageHero from "@/components/PageHero";
 import ScrollReveal from "@/components/ScrollReveal";
 import { CONTACT_INFO, SOCIAL_LINKS } from "@/data/content";
-import { Mail, MapPin, Instagram, Facebook, Linkedin, Send, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Instagram, Facebook, Linkedin, Send } from "lucide-react";
 
 const SUBJECTS = ["General Inquiry", "Live Project Collaboration", "Sponsorship", "Invicta", "Other"];
 
@@ -16,15 +15,12 @@ const Contact = () => {
     setForm({ name: "", email: "", subject: SUBJECTS[0], message: "" });
   };
 
-  const inputClasses = "w-full px-4 py-3 rounded-lg border border-border bg-muted/30 text-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary/50 outline-none transition-all placeholder:text-foreground-secondary/40";
-
   return (
     <div>
-      <PageHero title="Get In Touch" subtitle="Whether you want to collaborate, sponsor, or just say hello." badge="Contact" />
+      <PageHero title="Get In Touch" subtitle="Whether you want to collaborate, sponsor, or just say hello." />
 
-      <section className="section-padding relative">
-        <div className="absolute top-0 right-0 w-72 h-72 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="container-main relative z-10">
+      <section className="section-padding">
+        <div className="container-main">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* FORM */}
             <ScrollReveal>
@@ -34,8 +30,7 @@ const Contact = () => {
                   <input
                     type="text" required value={form.name}
                     onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                    placeholder="Your name"
-                    className={inputClasses}
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition"
                   />
                 </div>
                 <div>
@@ -43,8 +38,7 @@ const Contact = () => {
                   <input
                     type="email" required value={form.email}
                     onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                    placeholder="your@email.com"
-                    className={inputClasses}
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition"
                   />
                 </div>
                 <div>
@@ -52,7 +46,7 @@ const Contact = () => {
                   <select
                     value={form.subject}
                     onChange={e => setForm(f => ({ ...f, subject: e.target.value }))}
-                    className={inputClasses}
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition"
                   >
                     {SUBJECTS.map(s => <option key={s}>{s}</option>)}
                   </select>
@@ -62,72 +56,59 @@ const Contact = () => {
                   <textarea
                     required rows={5} value={form.message}
                     onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                    placeholder="Tell us what you have in mind..."
-                    className={`${inputClasses} resize-none`}
+                    className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition resize-none"
                   />
                 </div>
-                <motion.button
-                  type="submit"
-                  className="group inline-flex items-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:shadow-lg hover:shadow-primary/25 transition-all text-sm"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                <button type="submit" className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2">
                   <Send size={16} /> Send Message
-                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
-                </motion.button>
+                </button>
               </form>
             </ScrollReveal>
 
             {/* INFO */}
             <div className="space-y-6">
               <ScrollReveal>
-                <motion.div className="card-base p-6 flex items-start gap-4 group" whileHover={{ y: -3 }}>
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 border border-primary/20">
+                <div className="card-base p-6 flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <Mail className="text-primary" size={18} />
                   </div>
                   <div>
                     <h3 className="font-heading font-bold mb-1">Email</h3>
                     <a href={`mailto:${CONTACT_INFO.email}`} className="text-foreground-secondary text-sm hover:text-primary transition-colors">{CONTACT_INFO.email}</a>
                   </div>
-                </motion.div>
+                </div>
               </ScrollReveal>
 
               <ScrollReveal delay={0.1}>
-                <motion.div className="card-base p-6 flex items-start gap-4 group" whileHover={{ y: -3 }}>
-                  <div className="w-10 h-10 rounded-lg bg-accent-blue/10 flex items-center justify-center flex-shrink-0 border border-accent-blue/20">
+                <div className="card-base p-6 flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-accent-blue/10 flex items-center justify-center flex-shrink-0">
                     <Instagram className="text-accent-blue" size={18} />
                   </div>
                   <div>
                     <h3 className="font-heading font-bold mb-2">Follow Us</h3>
-                    <div className="flex gap-2">
-                      {[
-                        { href: SOCIAL_LINKS.instagram, Icon: Instagram, label: "Instagram" },
-                        { href: SOCIAL_LINKS.facebook, Icon: Facebook, label: "Facebook" },
-                        { href: SOCIAL_LINKS.linkedin, Icon: Linkedin, label: "LinkedIn" },
-                      ].map(s => (
-                        <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-muted/60 flex items-center justify-center text-foreground-secondary hover:bg-primary/20 hover:text-primary transition-all">
-                          <s.Icon size={16} />
-                        </a>
-                      ))}
+                    <div className="flex gap-3">
+                      <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-muted hover:bg-primary/10 transition-colors"><Instagram size={16} /></a>
+                      <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-muted hover:bg-primary/10 transition-colors"><Facebook size={16} /></a>
+                      <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-muted hover:bg-primary/10 transition-colors"><Linkedin size={16} /></a>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </ScrollReveal>
 
               <ScrollReveal delay={0.2}>
-                <motion.div className="card-base p-6 flex items-start gap-4 group" whileHover={{ y: -3 }}>
-                  <div className="w-10 h-10 rounded-lg bg-accent-red/10 flex items-center justify-center flex-shrink-0 border border-accent-red/20">
+                <div className="card-base p-6 flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-accent-red/10 flex items-center justify-center flex-shrink-0">
                     <MapPin className="text-accent-red" size={18} />
                   </div>
                   <div>
                     <h3 className="font-heading font-bold mb-1">Visit Us</h3>
                     <p className="text-foreground-secondary text-sm leading-relaxed">{CONTACT_INFO.address}</p>
                   </div>
-                </motion.div>
+                </div>
               </ScrollReveal>
 
               <ScrollReveal delay={0.3}>
-                <div className="rounded-xl overflow-hidden border border-border/50 h-64">
+                <div className="rounded-xl overflow-hidden border border-border h-64">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.9!2d77.2089!3d28.6962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd6f1b6c8f3d%3A0x7e8f9b7b0b3b0b0b!2sShaheed%20Sukhdev%20College%20of%20Business%20Studies!5e0!3m2!1sen!2sin!4v1234567890"
                     width="100%" height="100%" style={{ border: 0 }} allowFullScreen loading="lazy"
