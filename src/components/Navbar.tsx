@@ -30,11 +30,8 @@ const Navbar = () => {
       }`}
     >
       <div className="container-main flex items-center justify-between h-16 md:h-20">
-        <Link to="/" className="flex items-center gap-3 flex-shrink-0 group">
-          <img src={grandeurLogo} alt="Grandeur SSCBS" className="h-8 md:h-10 w-auto transition-transform group-hover:scale-105" />
-          <span className="font-heading font-bold text-lg text-foreground hidden sm:block">
-            Grandeur
-          </span>
+        <Link to="/" className="flex items-center flex-shrink-0 group">
+          <img src={grandeurLogo} alt="Grandeur SSCBS" className="h-12 md:h-14 w-auto transition-transform group-hover:scale-105 mix-blend-screen" />
         </Link>
 
         {/* Desktop nav */}
