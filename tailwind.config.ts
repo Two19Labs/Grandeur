@@ -12,7 +12,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['Playfair Display', 'serif'],
+        heading: ['Outfit', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
         accent: ['Space Grotesk', 'sans-serif'],
       },

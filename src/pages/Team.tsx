@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -35,8 +36,12 @@ const TeamCard = ({ member, size = "md" }: TeamCardProps) => {
   const iconSize = size === "lg" ? 32 : size === "md" ? 24 : 18;
 
   return (
-    <div className="card-base overflow-hidden group hover:border-primary/30 transition-all duration-300">
-      <div className={`relative ${size === "lg" ? "pt-8 pb-4" : "pt-6 pb-3"} flex flex-col items-center bg-gradient-to-b from-muted/60 to-transparent`}>
+    <motion.div
+      className="card-base overflow-hidden group"
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.2 }}
+    >
+      <div className={`relative ${size === "lg" ? "pt-8 pb-4" : "pt-6 pb-3"} flex flex-col items-center bg-gradient-to-b from-muted/30 to-transparent`}>
         <div className={`${imgSize} rounded-full overflow-hidden border-2 border-border group-hover:border-primary/40 transition-colors flex-shrink-0 bg-muted flex items-center justify-center`}>
           {image ? (
             <img src={image} alt={name} className="w-full h-full object-cover object-top" />
@@ -62,37 +67,42 @@ const TeamCard = ({ member, size = "md" }: TeamCardProps) => {
           </a>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 const FacultyCard = ({ member }: { member: Member }) => {
   const imgSrc = member.image ? FACULTY_IMAGES[member.image] : "";
   return (
-  <div className="card-base overflow-hidden group hover:border-primary/30 transition-all duration-300">
-    <div className="pt-8 pb-4 flex flex-col items-center bg-gradient-to-b from-muted/60 to-transparent">
-      <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-border group-hover:border-primary/40 transition-colors bg-muted flex items-center justify-center">
-        {imgSrc ? (
-          <img src={imgSrc} alt={member.name} className="w-full h-full object-cover object-top" />
-        ) : (
-          <User className="text-muted-foreground" size={30} />
-        )}
+    <motion.div
+      className="card-base overflow-hidden group"
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.2 }}
+    >
+      <div className="pt-8 pb-4 flex flex-col items-center bg-gradient-to-b from-muted/30 to-transparent">
+        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-border group-hover:border-primary/40 transition-colors bg-muted flex items-center justify-center">
+          {imgSrc ? (
+            <img src={imgSrc} alt={member.name} className="w-full h-full object-cover object-top" />
+          ) : (
+            <User className="text-muted-foreground" size={30} />
+          )}
+        </div>
       </div>
-    </div>
-    <div className="px-5 pb-6 text-center">
-      <h3 className="font-heading font-bold text-base">{member.name}</h3>
-      <p className="text-foreground-secondary text-xs mt-0.5">{member.designation}</p>
-    </div>
-  </div>
+      <div className="px-5 pb-6 text-center">
+        <h3 className="font-heading font-bold text-base">{member.name}</h3>
+        <p className="text-foreground-secondary text-xs mt-0.5">{member.designation}</p>
+      </div>
+    </motion.div>
   );
 };
 
+
 const Team = () => (
   <div>
-    <PageHero title="Our Team" subtitle="The people behind the legacy." />
+    <PageHero title="Our Team" subtitle="The people behind the legacy." badge="2025-26 Team" />
 
     {/* FACULTY */}
-    <section className="section-padding">
+    <section className="section-padding relative">
       <div className="container-main">
         <SectionHeader title="Faculty In-Charge" subtitle="The mentors who guide Grandeur." />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-sm mx-auto sm:max-w-lg">
@@ -106,8 +116,9 @@ const Team = () => (
     </section>
 
     {/* PRESIDENT */}
-    <section className="section-padding bg-background-alt border-y border-border">
-      <div className="container-main">
+    <section className="section-padding bg-background-alt relative">
+      <div className="absolute inset-0 dot-pattern opacity-20" />
+      <div className="container-main relative z-10">
         <SectionHeader title="President" />
         <div className="max-w-xs mx-auto">
           <ScrollReveal>
@@ -117,8 +128,20 @@ const Team = () => (
       </div>
     </section>
 
+    {/* VICE PRESIDENT */}
+    <section className="section-padding relative">
+      <div className="container-main">
+        <SectionHeader title="Vice President" />
+        <div className="max-w-xs mx-auto">
+          <ScrollReveal>
+            <TeamCard member={TEAM_DATA.vicePresident} size="lg" />
+          </ScrollReveal>
+        </div>
+      </div>
+    </section>
+
     {/* COORDINATORS */}
-    <section className="section-padding">
+    <section className="section-padding bg-background-alt relative">
       <div className="container-main">
         <SectionHeader title="Coordinators" />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-lg mx-auto">
@@ -132,7 +155,7 @@ const Team = () => (
     </section>
 
     {/* ADVISORY */}
-    <section className="section-padding bg-background-alt border-y border-border">
+    <section className="section-padding relative">
       <div className="container-main">
         <SectionHeader title="Advisory Committee" />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
@@ -146,8 +169,9 @@ const Team = () => (
     </section>
 
     {/* CORE */}
-    <section className="section-padding">
-      <div className="container-main">
+    <section className="section-padding bg-background-alt relative">
+      <div className="absolute inset-0 dot-pattern opacity-15" />
+      <div className="container-main relative z-10">
         <SectionHeader title="Core Committee" />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
           {TEAM_DATA.core.map((m, i) => (
@@ -160,7 +184,7 @@ const Team = () => (
     </section>
 
     {/* ORGANIZING */}
-    <section className="section-padding bg-background-alt border-y border-border">
+    <section className="section-padding relative">
       <div className="container-main">
         <SectionHeader title="Organizing Committee" />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
