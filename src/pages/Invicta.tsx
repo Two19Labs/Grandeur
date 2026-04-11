@@ -54,10 +54,10 @@ const Invicta = () => (
     <section className="py-16 border-y border-border">
       <div className="container-main">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <AnimatedCounter target={1200} suffix="+" label="Registrations" />
-          <AnimatedCounter target={8} label="Finalist Teams" />
-          <AnimatedCounter target={20000} suffix="+" label="Cash Prizes (₹)" />
-          <AnimatedCounter target={100000} suffix="+" label="Overall Prizes (₹)" />
+          <AnimatedCounter target={1200} suffix="+" label="Registrations" numberClassName="text-4xl md:text-6xl" />
+          <AnimatedCounter target={8} label="Finalist Teams" numberClassName="text-4xl md:text-6xl" />
+          <AnimatedCounter target={20000} prefix="₹" suffix="+" label="Cash Prize" numberClassName="text-4xl md:text-6xl" />
+          <AnimatedCounter target={100000} prefix="₹" suffix="+" label="Overall Prize" numberClassName="text-4xl md:text-6xl" />
         </div>
       </div>
     </section>

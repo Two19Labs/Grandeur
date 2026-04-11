@@ -3,11 +3,13 @@ import { useEffect, useRef, useState } from "react";
 interface AnimatedCounterProps {
   target: number;
   suffix?: string;
+  prefix?: string;
   label: string;
   dark?: boolean;
+  numberClassName?: string;
 }
 
-const AnimatedCounter = ({ target, suffix = "", label, dark = false }: AnimatedCounterProps) => {
+const AnimatedCounter = ({ target, suffix = "", prefix = "", label, dark = false, numberClassName = "text-3xl md:text-4xl" }: AnimatedCounterProps) => {
   const [count, setCount] = useState(0);
   const [started, setStarted] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -39,8 +41,8 @@ const AnimatedCounter = ({ target, suffix = "", label, dark = false }: AnimatedC
 
   return (
     <div ref={ref} className="text-center">
-      <div className={`font-accent text-3xl md:text-4xl font-bold ${dark ? "text-secondary" : "text-primary"}`}>
-        {count}{suffix}
+      <div className={`font-accent font-bold ${numberClassName} ${dark ? "text-secondary" : "text-primary"}`}>
+        {prefix}{new Intl.NumberFormat('en-IN').format(count)}{suffix}
       </div>
       <div className={`text-sm mt-1 font-medium ${dark ? "text-white/60" : "text-foreground-secondary"}`}>{label}</div>
     </div>
