@@ -15,7 +15,7 @@ const Footer = () => (
         {/* Brand */}
         <div className="lg:col-span-1">
           <Link to="/" className="inline-block mb-4">
-            <img src={grandeurLogo} alt="Grandeur" className="h-10 w-auto" />
+            <img src={grandeurLogo} alt="Grandeur" className="h-12 w-auto mix-blend-screen" />
           </Link>
           <p className="text-foreground-secondary text-sm leading-relaxed mb-3">
             The Consulting & Knowledge Cell of Shaheed Sukhdev College of Business Studies, University of Delhi.
