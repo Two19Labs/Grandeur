@@ -38,12 +38,12 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-0.5">
           {NAV_LINKS.filter(l => l.label !== "Contact").map(link => (
             <Link
               key={link.path}
               to={link.path}
-              className={`px-3 py-2 text-sm font-medium transition-all duration-200 rounded-lg relative ${
+              className={`px-2.5 py-2 text-[13px] font-medium whitespace-nowrap transition-all duration-200 rounded-lg relative ${
                 location.pathname === link.path
                   ? "text-primary"
                   : "text-foreground-secondary hover:text-foreground"
@@ -61,7 +61,7 @@ const Navbar = () => {
           ))}
           <Link
             to="/contact"
-            className="ml-3 px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-lg hover:opacity-90 transition-all duration-200 hover:shadow-lg hover:shadow-primary/20"
+            className="ml-2 px-4 py-2 bg-primary text-primary-foreground text-[13px] font-semibold rounded-lg whitespace-nowrap hover:opacity-90 transition-all duration-200 hover:shadow-lg hover:shadow-primary/20"
           >
             Get In Touch
           </Link>
