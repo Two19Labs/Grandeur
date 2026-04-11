@@ -74,7 +74,9 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-heading font-bold mb-1">Email</h3>
-                    <a href={`mailto:${CONTACT_INFO.email}`} className="text-foreground-secondary text-sm hover:text-primary transition-colors">{CONTACT_INFO.email}</a>
+                    <a href={`mailto:${CONTACT_INFO.email}`} className="text-foreground-secondary text-sm hover:text-primary transition-colors">
+                      {CONTACT_INFO.email}
+                    </a>
                   </div>
                 </div>
               </ScrollReveal>
