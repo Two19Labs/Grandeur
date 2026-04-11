@@ -187,7 +187,7 @@ export const SOCIAL_LINKS = {
 };
 
 export const CONTACT_INFO = {
-  email: "grandeur.sscbs@gmail.com",
+  email: "grandeur.consulting@sscbsdu.ac.in",
   address: "Shaheed Sukhdev College of Business Studies, PSP Area IV, Dr. K.S. Krishnan Marg, Near Kingsway Camp, Delhi - 110009",
   college: "University of Delhi",
 };
