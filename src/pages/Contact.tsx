@@ -4,11 +4,8 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { CONTACT_INFO, SOCIAL_LINKS } from "@/data/content";
 import { Mail, MapPin, Instagram, Facebook, Linkedin, Send, CheckCircle, AlertCircle, Loader } from "lucide-react";
 
-// ✅ Replace this with your Formspree form ID after signing up at formspree.io
-const FORMSPREE_ID = "YOUR_FORM_ID";
-
+const FORMSPREE_ID = "mrerzqep";
 const SUBJECTS = ["General Inquiry", "Live Project Collaboration", "Sponsorship", "Invicta", "Other"];
-
 type Status = "idle" | "sending" | "success" | "error";
 
 const Contact = () => {
@@ -50,7 +47,7 @@ const Contact = () => {
                   <CheckCircle className="text-green-500" size={52} />
                   <h3 className="font-heading text-xl font-bold">Message Sent!</h3>
                   <p className="text-foreground-secondary text-sm max-w-xs">
-                    Thanks for reaching out. We'll get back to you at <strong>{form.email || "your email"}</strong> shortly.
+                    Thanks for reaching out. We'll get back to you soon.
                   </p>
                   <button
                     onClick={() => setStatus("idle")}
@@ -104,7 +101,7 @@ const Contact = () => {
                   {status === "error" && (
                     <div className="flex items-center gap-2 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
                       <AlertCircle size={16} />
-                      Something went wrong. Please try emailing us directly.
+                      Something went wrong. Please email us directly at {CONTACT_INFO.email}
                     </div>
                   )}
 
@@ -113,11 +110,9 @@ const Contact = () => {
                     disabled={status === "sending"}
                     className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2 disabled:opacity-60"
                   >
-                    {status === "sending" ? (
-                      <><Loader size={16} className="animate-spin" /> Sending...</>
-                    ) : (
-                      <><Send size={16} /> Send Message</>
-                    )}
+                    {status === "sending"
+                      ? <><Loader size={16} className="animate-spin" /> Sending...</>
+                      : <><Send size={16} /> Send Message</>}
                   </button>
                 </form>
               )}

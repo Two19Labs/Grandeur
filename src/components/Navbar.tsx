@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 import { NAV_LINKS } from "@/data/content";
 import grandeurLogo from "@/assets/grandeur-logo.png";
 
@@ -39,7 +39,13 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
-
+          <Link
+            to="/contact"
+            className="ml-3 w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
+            title="Get In Touch"
+          >
+            <Mail size={18} />
+          </Link>
         </div>
 
         {/* Mobile toggle */}
@@ -65,7 +71,12 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-
+            <Link
+              to="/contact"
+              className="mt-2 px-4 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded-lg text-center flex items-center justify-center gap-2"
+            >
+              <Mail size={16} /> Get In Touch
+            </Link>
           </div>
         </div>
       )}

@@ -14,7 +14,6 @@ export const NAV_LINKS = [
   { label: "Events", path: "/events" },
   { label: "Join Us", path: "/join" },
   { label: "Team", path: "/team" },
-  { label: "Contact", path: "/contact" },
 ];
 
 export const STATS = [
