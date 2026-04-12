@@ -169,7 +169,7 @@ export const TEAM_DATA = {
     { name: "Placeholder", role: "Core Committee", linkedin: "", image: "" },
   ],
   organizing: [
-    { name: "Placeholder", role: "Organizing Committee", linkedin: "", image: "" },
+    { name: "Parth Khattar", role: "Organizing Committee", linkedin: "", image: "/team-parth-khattar.jpg" },
     { name: "Placeholder", role: "Organizing Committee", linkedin: "", image: "" },
     { name: "Placeholder", role: "Organizing Committee", linkedin: "", image: "" },
     { name: "Placeholder", role: "Organizing Committee", linkedin: "", image: "" },
