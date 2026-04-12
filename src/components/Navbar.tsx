@@ -39,12 +39,7 @@ const Navbar = () => {
               {link.label}
             </Link>
           ))}
-          <Link
-            to="/contact"
-            className="ml-4 px-5 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity whitespace-nowrap"
-          >
-            Get In Touch
-          </Link>
+
         </div>
 
         {/* Mobile toggle */}
@@ -70,12 +65,7 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              className="mt-2 px-4 py-3 bg-primary text-primary-foreground text-sm font-semibold rounded-lg text-center"
-            >
-              Get In Touch
-            </Link>
+
           </div>
         </div>
       )}
