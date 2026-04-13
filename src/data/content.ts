@@ -173,9 +173,11 @@ export const TEAM_DATA = {
     { name: "Vanshika Kumari", role: "Organizing Committee", linkedin: "", image: "/team-vanshika-kumari.jpg" },
     { name: "Vishisht Vibhuti", role: "Organizing Committee", linkedin: "", image: "/team-vishisht-vibhuti.jpg" },
     { name: "Yana Soni", role: "Organizing Committee", linkedin: "", image: "/team-yana-soni.jpg" },
-    { name: "Placeholder", role: "Organizing Committee", linkedin: "", image: "" },
-    { name: "Placeholder", role: "Organizing Committee", linkedin: "", image: "" },
-    { name: "Placeholder", role: "Organizing Committee", linkedin: "", image: "" },
+    { name: "Ananya Jain", role: "Organizing Committee", linkedin: "", image: "/team-ananya-jain.jpg" },
+    { name: "Manya", role: "Organizing Committee", linkedin: "", image: "/team-manya.jpg" },
+    { name: "Ayushi Garg", role: "Organizing Committee", linkedin: "", image: "/team-ayushi-garg.jpg" },
+    { name: "Harshit Chandnani", role: "Organizing Committee", linkedin: "", image: "/team-harshit-chandnani.jpg" },
+    { name: "Jiya", role: "Organizing Committee", linkedin: "", image: "/team-jiya.jpg" },
   ],
 };
 
