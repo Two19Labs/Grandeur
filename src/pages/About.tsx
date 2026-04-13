@@ -20,8 +20,8 @@ const About = () => (
           <div className="max-w-3xl mx-auto space-y-5 text-foreground-secondary leading-relaxed text-base">
             <p>
               Grandeur is the oldest consulting society in Delhi University. Established at Shaheed
-              Sukhdev College of Business Studies — India's first collegiate business school, founded
-              in 1987 under the University of Delhi — Grandeur was set up with the objective of
+              Sukhdev College of Business Studies, India's first collegiate business school, founded
+              in 1987 under the University of Delhi. Grandeur was set up with the objective of
               benefiting the student community through consulting events, live industry projects,
               seminars, workshops, and self-development case practice sessions.
             </p>
@@ -29,7 +29,7 @@ const About = () => (
               Over the years, the cell has accomplished more than 50 projects in the domains of
               consulting, research, finance, and marketing. Our members have competed in and won at
               competitions hosted by IIM Ahmedabad, IIM Bangalore, IIM Kashipur, IIM Udaipur, IIM
-              Raipur, IIT Delhi, IIT Bombay, SRCC, and many more — including international stages
+              Raipur, IIT Delhi, IIT Bombay, SRCC, and many more, including international stages
               like the Global Microfinance Case Competition at the University of Melbourne, where our
               team was the only Indian representation in the international top 12.
             </p>
@@ -51,7 +51,7 @@ const About = () => (
               <h3 className="font-heading text-xl font-bold mb-3 text-primary">Our Mission</h3>
               <p className="text-foreground-secondary leading-relaxed text-sm">
                 To inculcate knowledge and skills among students from the eclectic fields of
-                management, economics, law, technology, environment, and various other disciplines —
+                management, economics, law, technology, environment, and various other disciplines,
                 through real-world consulting exposure and rigorous intellectual development.
               </p>
             </div>
@@ -141,15 +141,15 @@ const About = () => (
               undergraduate business schools, established in 1987 as the first collegiate business
               college in India under the University of Delhi. Ranked #1 in India Today's "Best
               Colleges in BBA" in 2020 and 2021, accredited Grade A+ by NAAC with a CGPA of 3.46,
-              and ranked 101–105 among colleges in NIRF Ranking 2025, SSCBS is renowned for its
-              vibrant society culture — boasting around 30 active student societies, the highest in
+              and ranked 101-105 among colleges in NIRF Ranking 2025, SSCBS is renowned for its
+              vibrant society culture, boasting around 30 active student societies, the highest in
               Delhi University.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {[
                 { value: "#1", label: "BBA College", sub: "India Today 2020 & 2021" },
                 { value: "A+", label: "NAAC Grade", sub: "CGPA 3.46" },
-                { value: "101–105", label: "NIRF Rank", sub: "Among All Colleges" },
+                { value: "101-105", label: "NIRF Rank", sub: "Among All Colleges" },
                 { value: "30+", label: "Student Societies", sub: "Highest in DU" },
               ].map((stat, i) => (
                 <ScrollReveal key={i} delay={i * 0.08}>

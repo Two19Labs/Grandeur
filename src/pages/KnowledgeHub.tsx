@@ -22,7 +22,7 @@ const KnowledgeHub = () => (
   <div>
     <PageHero
       title="Knowledge Hub"
-      subtitle="Industry reports, case frameworks, and consulting prep resources — built by Grandeur members, for the DU consulting community."
+      subtitle="Industry reports, case frameworks, and consulting prep resources, built by Grandeur members, for the DU consulting community."
     />
 
     {/* Intro banner */}

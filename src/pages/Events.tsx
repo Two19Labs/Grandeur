@@ -22,7 +22,7 @@ const Events = () => (
   <div>
     <PageHero
       title="Events Archive"
-      subtitle="A record of every competition, initiative, and milestone in Grandeur's journey — from SSCBS corridors to global stages."
+      subtitle="A record of every competition, initiative, and milestone in Grandeur's journey, from SSCBS corridors to global stages."
     />
 
     <section className="section-padding">

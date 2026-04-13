@@ -226,9 +226,9 @@ export const KNOWLEDGE_RESOURCES = [
     category: "Consulting Prep",
     icon: "BookOpen",
     items: [
-      { title: "Case Interview Primer", description: "From MECE thinking to structured communication — a complete beginner guide.", tag: "Guide" },
+      { title: "Case Interview Primer", description: "From MECE thinking to structured communication, a complete beginner guide.", tag: "Guide" },
       { title: "Guesstimation Workbook", description: "60+ practice estimation problems with worked solutions.", tag: "Guide" },
-      { title: "Consulting Vocabulary 101", description: "The language of consulting — key terms, acronyms, and frameworks explained.", tag: "Guide" },
+      { title: "Consulting Vocabulary 101", description: "The language of consulting, key terms, acronyms, and frameworks explained.", tag: "Guide" },
     ],
   },
 ];
@@ -246,7 +246,7 @@ export const EVENTS_ARCHIVE = [
     year: "2023-24",
     events: [
       { name: "Invicta 2024", type: "Case Competition", description: "Multi-round national case study competition attracting top college teams.", highlight: "Pan-India" },
-      { name: "Global Microfinance Case Competition", type: "International", description: "Qualified for global heats — only Indian team in top 12 globally.", highlight: "University of Melbourne" },
+      { name: "Global Microfinance Case Competition", type: "International", description: "Qualified for global heats, only Indian team in top 12 globally.", highlight: "University of Melbourne" },
       { name: "AESTIMATUS 9.0 Finals", type: "External Competition", description: "National finalists at IIM Kashipur's flagship competition, 2200+ teams.", highlight: "2200+ teams" },
     ],
   },

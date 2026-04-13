@@ -17,14 +17,14 @@ const Join = () => (
   <div>
     <PageHero
       title="Join Grandeur"
-      subtitle="We recruit once a year. If you're a fresher at SSCBS who wants to do real work — not just attend meetings — this is for you."
+      subtitle="We recruit once a year. If you're a fresher at SSCBS who wants to do real work, not just attend meetings - this is for you."
     />
 
     {/* Eligibility banner */}
     <section className="py-10 bg-background-alt border-b border-border">
       <div className="container-main max-w-3xl text-center">
         <p className="text-foreground-secondary leading-relaxed">
-          Recruitment is open to <span className="text-foreground font-semibold">first-year students at SSCBS</span>. We don't look for specific grades or prior experience — we look for curiosity, work ethic, and genuine interest in business. Applications typically open in <span className="text-foreground font-semibold">August–September</span>.
+          Recruitment is open to <span className="text-foreground font-semibold">first-year students at SSCBS</span>. We don't look for specific grades or prior experience - we look for curiosity, work ethic, and genuine interest in business. Applications typically open in <span className="text-foreground font-semibold">August-September</span>.
         </p>
       </div>
     </section>
@@ -58,7 +58,7 @@ const Join = () => (
     {/* What you get */}
     <section className="section-padding bg-background-alt border-y border-border">
       <div className="container-main">
-        <SectionHeader title="What You Get" subtitle="Membership in Grandeur is a commitment — and so is ours to you." />
+        <SectionHeader title="What You Get" subtitle="Membership in Grandeur is a commitment, and so is ours to you." />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {JOIN_WHAT_YOU_GET.map((item, i) => (
             <ScrollReveal key={i} delay={i * 0.08}>
