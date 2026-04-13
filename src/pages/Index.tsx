@@ -264,7 +264,6 @@ const Home = () => {
       <div className="container-main relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center max-w-4xl mx-auto">
           <img src={grandeurLogoHero} alt="Grandeur" className="h-28 md:h-40 w-auto mx-auto mb-8 drop-shadow-2xl" />
-          <h1 className="font-body text-5xl md:text-7xl font-semibold text-white tracking-wide mb-3">Grandeur</h1>
           <p className="text-lg md:text-2xl text-white/70 font-medium mb-3">The Consulting & Knowledge Cell of SSCBS</p>
           <p className="text-white/60 text-base md:text-lg max-w-2xl mx-auto mb-8">Delhi University's Oldest Consulting Society</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
