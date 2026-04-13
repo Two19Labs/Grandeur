@@ -178,6 +178,8 @@ export const TEAM_DATA = {
     { name: "Ayushi Garg", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/ayushi-garg-a6111028b/", image: "/team-ayushi-garg.jpg" },
     { name: "Harshit Chandnani", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/harshit-chandnani-354289378/", image: "/team-harshit-chandnani.jpg" },
     { name: "Jiya", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/jiya-bishnoi/", image: "/team-jiya.jpg" },
+    { name: "Somya Jain", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/somya-jain-4266682a5/", image: "/team-somya-jain.jpg" },
+    { name: "Nitya Nishtha", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/nitya-nistha-711b53277/", image: "/team-nitya-nishtha.jpg" },
   ],
 };
 
