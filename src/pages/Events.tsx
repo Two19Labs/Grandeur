@@ -3,6 +3,7 @@ import SectionHeader from "@/components/SectionHeader";
 import ScrollReveal from "@/components/ScrollReveal";
 import { EVENTS_ARCHIVE } from "@/data/content";
 import { Calendar, Award, Globe, Users } from "lucide-react";
+import { EchelonCountdown } from "@/components/EchelonBanner";
 
 const typeIcon: Record<string, React.ReactNode> = {
   "Case Competition": <Award size={16} />,
@@ -24,6 +25,8 @@ const Events = () => (
       title="Events Archive"
       subtitle="A record of every competition, initiative, and milestone in Grandeur's journey, from SSCBS corridors to global stages."
     />
+
+    <EchelonCountdown />
 
     <section className="section-padding">
       <div className="container-main max-w-4xl">

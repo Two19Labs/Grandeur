@@ -16,6 +16,7 @@ import SectionHeader from "@/components/SectionHeader";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ScrollReveal from "@/components/ScrollReveal";
 import { STATS, CORNERSTONE_ACTIVITIES, COLLABORATORS, PROJECTS, PUBLICATIONS } from "@/data/content";
+import { EchelonCountdown } from "@/components/EchelonBanner";
 
 const COLLAB_LOGOS: Record<string, string> = {
   "KRG Consultancy": collabKrg,
@@ -379,6 +380,8 @@ const Home = () => {
         </motion.div>
       </div>
     </section>
+
+    <EchelonCountdown />
 
     {/* INVICTA TEASER — scale + glow */}
     <section className="section-padding">
