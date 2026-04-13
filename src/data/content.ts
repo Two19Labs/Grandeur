@@ -169,15 +169,15 @@ export const TEAM_DATA = {
   ],
   organizing: [
     { name: "Parth Khattar", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/parth-khattar-795a65376/", image: "/team-parth-khattar.jpg" },
-    { name: "Somya Gupta", role: "Organizing Committee", linkedin: "", image: "/team-somya-gupta.png" },
-    { name: "Vanshika Kumari", role: "Organizing Committee", linkedin: "", image: "/team-vanshika-kumari.jpg" },
+    { name: "Somya Gupta", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/somya-gupta-4026ba295/", image: "/team-somya-gupta.png" },
+    { name: "Vanshika Kumari", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/vanshika-kumari-ab601832b/", image: "/team-vanshika-kumari.jpg" },
     { name: "Vishisht Vibhuti", role: "Organizing Committee", linkedin: "", image: "/team-vishisht-vibhuti.jpg" },
     { name: "Yana Soni", role: "Organizing Committee", linkedin: "", image: "/team-yana-soni.jpg" },
-    { name: "Ananya Jain", role: "Organizing Committee", linkedin: "", image: "/team-ananya-jain.jpg" },
-    { name: "Manya", role: "Organizing Committee", linkedin: "", image: "/team-manya.jpg" },
-    { name: "Ayushi Garg", role: "Organizing Committee", linkedin: "", image: "/team-ayushi-garg.jpg" },
-    { name: "Harshit Chandnani", role: "Organizing Committee", linkedin: "", image: "/team-harshit-chandnani.jpg" },
-    { name: "Jiya", role: "Organizing Committee", linkedin: "", image: "/team-jiya.jpg" },
+    { name: "Ananya Jain", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/ananya-jain-5263a0323/", image: "/team-ananya-jain.jpg" },
+    { name: "Manya", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/manya-694185371/", image: "/team-manya.jpg" },
+    { name: "Ayushi Garg", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/ayushi-garg-a6111028b/", image: "/team-ayushi-garg.jpg" },
+    { name: "Harshit Chandnani", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/harshit-chandnani-354289378/", image: "/team-harshit-chandnani.jpg" },
+    { name: "Jiya", role: "Organizing Committee", linkedin: "https://www.linkedin.com/in/jiya-bishnoi/", image: "/team-jiya.jpg" },
   ],
 };
 
