@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Mail } from "lucide-react";
 import { NAV_LINKS } from "@/data/content";
-import grandeurLogo from "@/assets/grandeur-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +20,7 @@ const Navbar = () => {
     <nav className={` bg-background/95 backdrop-blur-sm transition-shadow ${scrolled ? "shadow-md border-b border-border" : ""}`}>
       <div className="flex items-center justify-between h-16 md:h-20 px-4 sm:px-6">
         <Link to="/" className="flex-shrink-0">
-          <img src={grandeurLogo} alt="Grandeur SSCBS" className="h-10 md:h-12 w-auto mix-blend-screen" />
+          <img src="/grandeur-logo-new.png" alt="Grandeur SSCBS" className="h-10 md:h-12 w-auto" />
         </Link>
 
         {/* Desktop nav */}

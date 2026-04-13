@@ -8,7 +8,7 @@ const Footer = () => (
     <div className="container-main">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
         <div className="md:col-span-2">
-          <img src={grandeurLogo} alt="Grandeur" className="h-12 w-auto mb-4 brightness-0 invert" />
+          <img src="/grandeur-logo-new.png" alt="Grandeur" className="h-12 w-auto mb-4 brightness-0 invert" />
           <p className="text-background/70 text-sm leading-relaxed max-w-md">
             The Consulting and Knowledge Cell of Shaheed Sukhdev College of Business Studies, University of Delhi.
           </p>
