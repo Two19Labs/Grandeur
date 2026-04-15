@@ -7,7 +7,7 @@ export const NAV_LINKS = [
   { label: "Home", path: "/" },
   { label: "About", path: "/about" },
   { label: "Projects", path: "/projects" },
-  { label: "Publications", path: "/publications" },
+  { label: "Knowledge Hub", path: "/knowledge-hub" },
   { label: "Invicta", path: "/invicta" },
   { label: "Achievements", path: "/achievements" },
   { label: "Knowledge Hub", path: "/knowledge-hub" },

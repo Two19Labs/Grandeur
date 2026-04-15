@@ -1,88 +1,129 @@
+import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
-import ScrollReveal from "@/components/ScrollReveal";
-import { KNOWLEDGE_RESOURCES } from "@/data/content";
-import { BarChart2, Layers, BookOpen, ExternalLink, Download } from "lucide-react";
+import { FileText, Download, BookOpen, BarChart2, Layers, ExternalLink } from "lucide-react";
 
-const iconMap: Record<string, React.ReactNode> = {
-  BarChart2: <BarChart2 size={22} />,
-  Layers: <Layers size={22} />,
-  BookOpen: <BookOpen size={22} />,
+// ─── ADD NEW RESOURCES HERE ───────────────────────────────────────────────────
+// Categories: "Industry Report" | "Company Report" | "Sector Report" | "Casebook" | "Framework" | "Guide"
+const RESOURCES = [
+  {
+    title: "Industry Primer 2026",
+    category: "Industry Report",
+    description: "Grandeur's flagship industry primer covering key sectors, business frameworks, and market insights to prepare you for consulting and case competitions.",
+    file: "/industry-primer-2026.pdf",
+    tag: "Industry Report",
+  },
+];
+// ─────────────────────────────────────────────────────────────────────────────
+
+const TAG_COLORS: Record<string, string> = {
+  "Industry Report": "bg-blue-500/10 text-blue-600 border-blue-200",
+  "Company Report":  "bg-orange-500/10 text-orange-600 border-orange-200",
+  "Sector Report":   "bg-purple-500/10 text-purple-600 border-purple-200",
+  "Casebook":        "bg-green-500/10 text-green-600 border-green-200",
+  "Framework":       "bg-yellow-500/10 text-yellow-600 border-yellow-200",
+  "Guide":           "bg-secondary/10 text-secondary border-secondary/20",
 };
 
-const tagColors: Record<string, string> = {
-  Industry: "bg-blue-500/10 text-blue-400",
-  Sector: "bg-purple-500/10 text-purple-400",
-  Company: "bg-orange-500/10 text-orange-400",
-  Framework: "bg-green-500/10 text-green-400",
-  Guide: "bg-secondary/20 text-secondary",
-};
+const ResourceCard = ({ r }: { r: typeof RESOURCES[0] }) => (
+  <div className="card-base p-6 h-full flex flex-col group hover:border-primary/30 transition-all duration-300">
+    <div className="flex items-start justify-between mb-4">
+      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+        <FileText className="text-primary" size={18} />
+      </div>
+      <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${TAG_COLORS[r.tag] || "bg-muted text-foreground-secondary border-border"}`}>
+        {r.tag}
+      </span>
+    </div>
+    <h3 className="font-heading font-bold text-base mb-2">{r.title}</h3>
+    <p className="text-foreground-secondary text-sm leading-relaxed flex-1">{r.description}</p>
+    <div className="mt-5 flex gap-3">
+      <a
+        href={r.file}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1.5 text-sm text-foreground-secondary hover:text-primary transition-colors font-medium"
+      >
+        <ExternalLink size={14} /> View
+      </a>
+      <a
+        href={r.file}
+        download
+        className="flex items-center gap-1.5 text-sm text-primary font-semibold hover:opacity-80 transition-opacity"
+      >
+        <Download size={14} /> Download
+      </a>
+    </div>
+  </div>
+);
 
 const KnowledgeHub = () => (
   <div>
     <PageHero
       title="Knowledge Hub"
-      subtitle="Industry reports, case frameworks, and consulting prep resources, built by Grandeur members, for the DU consulting community."
+      subtitle="Reports, publications, casebooks, and frameworks, all produced by Grandeur members. Free for the entire consulting community."
     />
 
-    {/* Intro banner */}
+    {/* Intro */}
     <section className="py-10 bg-background-alt border-b border-border">
       <div className="container-main flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="max-w-xl">
-          <h2 className="font-heading text-xl font-bold mb-2">Open-Access Research & Resources</h2>
+          <h2 className="font-heading text-xl font-bold mb-2">Open-Access Research and Resources</h2>
           <p className="text-foreground-secondary text-sm leading-relaxed">
             Everything here is produced by Grandeur members through live project experience, competition prep, and structured research. Use it, share it, build on it.
           </p>
         </div>
-        <a
-          href="https://drive.google.com/drive/folders/grandeur-reports"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm whitespace-nowrap"
-        >
-          <ExternalLink size={16} />
-          View Full Report Drive
-        </a>
+        <div className="flex items-center gap-2 px-5 py-3 bg-primary/10 text-primary rounded-lg text-sm font-semibold">
+          <FileText size={16} />
+          {RESOURCES.length} {RESOURCES.length === 1 ? "Resource" : "Resources"} Available
+        </div>
       </div>
     </section>
 
-    {/* Resource categories */}
-    {KNOWLEDGE_RESOURCES.map((cat, ci) => (
-      <section key={ci} className={`section-padding ${ci % 2 === 1 ? "bg-background-alt" : ""}`}>
-        <div className="container-main">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
-              {iconMap[cat.icon]}
-            </div>
-            <h2 className="font-heading text-2xl font-bold">{cat.category}</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {cat.items.map((item, ii) => (
-              <ScrollReveal key={ii} delay={ii * 0.08}>
-                <div className="card-base p-6 h-full flex flex-col justify-between group hover:border-primary/30 transition-colors">
-                  <div>
-                    <div className="flex items-start justify-between mb-3">
-                      <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${tagColors[item.tag] || "bg-muted text-foreground-secondary"}`}>
-                        {item.tag}
-                      </span>
-                    </div>
-                    <h3 className="font-heading font-bold text-base mb-2">{item.title}</h3>
-                    <p className="text-foreground-secondary text-sm leading-relaxed">{item.description}</p>
-                  </div>
-                  <button className="mt-5 flex items-center gap-2 text-sm text-primary font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Download size={14} />
-                    Download PDF
-                  </button>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
+    {/* Resources grid */}
+    <section className="section-padding">
+      <div className="container-main">
+        <SectionHeader title="All Resources" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {RESOURCES.map((r, i) => (
+            <ScrollReveal key={i} delay={i * 0.07}>
+              <ResourceCard r={r} />
+            </ScrollReveal>
+          ))}
         </div>
-      </section>
-    ))}
+      </div>
+    </section>
+
+    {/* Framework & Consulting Prep — kept from original */}
+    <section className="section-padding bg-background-alt border-t border-border">
+      <div className="container-main">
+        <SectionHeader title="Case Frameworks and Consulting Prep" subtitle="Structured tools to sharpen your case-solving skills." />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { icon: <Layers size={22} />, title: "Market Entry Framework", desc: "A structured approach to evaluating new market opportunities end-to-end.", tag: "Framework" },
+            { icon: <BarChart2 size={22} />, title: "Profitability Analysis", desc: "Diagnosing revenue and cost levers for turnaround and growth cases.", tag: "Framework" },
+            { icon: <BookOpen size={22} />, title: "Case Interview Primer", desc: "From MECE thinking to structured communication, a complete beginner guide.", tag: "Guide" },
+          ].map((item, i) => (
+            <ScrollReveal key={i} delay={i * 0.08}>
+              <div className="card-base p-6 h-full flex flex-col group hover:border-primary/30 transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
+                  {item.icon}
+                </div>
+                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border self-start mb-3 ${TAG_COLORS[item.tag]}`}>
+                  {item.tag}
+                </span>
+                <h3 className="font-heading font-bold text-base mb-2">{item.title}</h3>
+                <p className="text-foreground-secondary text-sm leading-relaxed flex-1">{item.desc}</p>
+                <p className="text-xs text-muted-foreground mt-4 italic">Coming soon</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
 
     {/* CTA */}
-    <section className="section-padding bg-primary/5 border-t border-border text-center">
+    <section className="section-padding border-t border-border text-center">
       <div className="container-main max-w-2xl">
         <SectionHeader
           title="Contribute to the Hub"
