@@ -48,6 +48,48 @@ const RESOURCES = [
     file: "/groww-company-report.pdf",
     tag: "Company Report",
   },
+  {
+    title: "AI in Health Industry",
+    category: "Industry Report",
+    description: "A deep dive into how AI is transforming healthcare — covering medical diagnosis, drug discovery, clinical operations, mental health applications, regulatory landscape, and market growth projections to 2030.",
+    file: "/ai-health-industry-analysis.pdf",
+    tag: "Industry Report",
+  },
+  {
+    title: "E-Commerce Industry Analysis",
+    category: "Industry Report",
+    description: "A comprehensive look at India's e-commerce sector — Porter's Five Forces, SWOT analysis, revenue models, growth trends, COVID-19 impact, government initiatives, and setup cost breakdown.",
+    file: "/ecommerce-industry-analysis.pdf",
+    tag: "Industry Report",
+  },
+  {
+    title: "Gaming Industry Analysis",
+    category: "Industry Report",
+    description: "An in-depth analysis of the global gaming industry covering market size projections to 2030, Porter's Five Forces, revenue models, setup costs, key investments, and the impact of COVID-19 on consumer behaviour.",
+    file: "/gaming-industry-analysis.pdf",
+    tag: "Industry Report",
+  },
+  {
+    title: "Flipkart - Company Analysis",
+    category: "Company Report",
+    description: "A detailed profile of India's largest e-commerce retailer — founders' journey, SWOT analysis, competitive strengths, supply chain breakdown, and industry comparison against Amazon and IndiaMart.",
+    file: "/flipkart-company-analysis.pdf",
+    tag: "Company Report",
+  },
+  {
+    title: "GlaxoSmithKline (GSK) - Company Analysis",
+    category: "Company Report",
+    description: "A structured analysis of GSK covering its history, CEO profile, SWOT, value chain (primary and secondary activities), competitive advantages, and group turnover breakdown by business and geography.",
+    file: "/gsk-company-analysis.pdf",
+    tag: "Company Report",
+  },
+  {
+    title: "MediBuddy - Company Analysis",
+    category: "Company Report",
+    description: "An analysis of India's leading digital healthcare platform — founders, history, services offered, SWOT, funding rounds, competitive landscape, and comparison against Practo, Tata 1mg, and Netmeds.",
+    file: "/medibuddy-company-analysis.pdf",
+    tag: "Company Report",
+  },
 ];
 // ─────────────────────────────────────────────────────────────────────────────
 
