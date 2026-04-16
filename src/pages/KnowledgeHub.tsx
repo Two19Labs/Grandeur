@@ -13,6 +13,41 @@ const RESOURCES = [
     file: "/industry-primer-2026.pdf",
     tag: "Industry Report",
   },
+  {
+    title: "Indian EdTech Industry Report",
+    category: "Industry Report",
+    description: "A comprehensive analysis of India's EdTech revolution - covering market growth, post-pandemic hurdles, sector snapshots, evolving tech landscape, investor trends, and future outlook. January 2025.",
+    file: "/edtech-industry-report.pdf",
+    tag: "Industry Report",
+  },
+  {
+    title: "Pharmaceutical Industry Analysis",
+    category: "Industry Report",
+    description: "An in-depth analysis of India's pharmaceutical sector covering SWOT, Porter's Five Forces, major trends, COVID impact, revenue model, government initiatives, and key market players.",
+    file: "/pharmaceutical-industry-analysis.pdf",
+    tag: "Industry Report",
+  },
+  {
+    title: "Meesho - Company Analysis",
+    category: "Company Report",
+    description: "A detailed breakdown of Meesho's journey from Fashnear to a social commerce giant - covering its business model, revenue streams, financials, competitor analysis, and traffic rankings.",
+    file: "/meesho-company-analysis.pdf",
+    tag: "Company Report",
+  },
+  {
+    title: "Meta - Company Analysis",
+    category: "Company Report",
+    description: "A structured company analysis of Meta Platforms covering its timeline, business and revenue models, industry analysis, SWOT, future outlook, and financial statements.",
+    file: "/meta-company-analysis.pdf",
+    tag: "Company Report",
+  },
+  {
+    title: "Groww - Company Report",
+    category: "Company Report",
+    description: "An analysis of Groww's business model, PESTEL framework, competitor landscape, and future prospects in India's share market and FinTech sector.",
+    file: "/groww-company-report.pdf",
+    tag: "Company Report",
+  },
 ];
 // ─────────────────────────────────────────────────────────────────────────────
 
