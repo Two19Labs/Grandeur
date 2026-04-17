@@ -20,7 +20,7 @@ const Navbar = () => {
     <nav className={` bg-background/95 backdrop-blur-sm transition-shadow ${scrolled ? "shadow-md border-b border-border" : ""}`}>
       <div className="flex items-center justify-between h-16 md:h-20 px-4 sm:px-6">
         <Link to="/" className="flex-shrink-0">
-          <img src="/grandeur-logo-new.png" alt="Grandeur SSCBS" className="h-10 md:h-12 w-auto" />
+          <img src="/grandeur-logo.png" alt="Grandeur SSCBS" className="h-10 md:h-12 w-auto" />
         </Link>
 
         {/* Desktop nav */}
