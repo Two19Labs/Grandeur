@@ -10,7 +10,6 @@ export const NAV_LINKS = [
   { label: "Knowledge Hub", path: "/knowledge-hub" },
   { label: "Invicta", path: "/invicta" },
   { label: "Achievements", path: "/achievements" },
-  { label: "Knowledge Hub", path: "/knowledge-hub" },
   { label: "Events", path: "/events" },
   { label: "Join Us", path: "/join" },
   { label: "Team", path: "/team" },
