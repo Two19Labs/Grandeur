@@ -20,7 +20,7 @@ const getTimeLeft = (): TimeLeft | null => {
 
 const Pad = ({ n }: { n: number }) => <span>{String(n).padStart(2, "0")}</span>;
 
-export const EchelonCountdown = () => {
+export const EchelonCountdown = ({ deadline = EXPIRY }: { deadline?: Date } = {}) => {
   const [time, setTime] = useState<TimeLeft | null>(getTimeLeft);
 
   useEffect(() => {

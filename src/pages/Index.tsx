@@ -166,34 +166,7 @@ const ParthCountdown = ({ deadline }: { deadline: Date }) => {
   );
 };
 
-const EchelonCountdown = ({ deadline }: { deadline: Date }) => {
-  const time = useCountdown(deadline);
-  const isDone = time.days === 0 && time.hours === 0 && time.minutes === 0 && time.seconds === 0;
 
-  return (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-      {[
-        { value: time.days, label: "Days" },
-        { value: time.hours, label: "Hours" },
-        { value: time.minutes, label: "Minutes" },
-        { value: time.seconds, label: "Seconds" },
-      ].map((unit) => (
-        <div
-          key={unit.label}
-          className="rounded-2xl border border-white/15 bg-white/8 px-4 py-5 text-center backdrop-blur"
-        >
-          <div className="font-heading text-3xl font-bold text-white tabular-nums md:text-4xl">
-            {String(unit.value).padStart(2, "0")}
-          </div>
-          <div className="mt-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/55">
-            {unit.label}
-          </div>
-        </div>
-      ))}
-      {isDone && <p className="col-span-full text-sm text-white/70">Registrations have closed.</p>}
-    </div>
-  );
-};
 
 const Home = () => {
   const invictaLive = isInvictaLive();
