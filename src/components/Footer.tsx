@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import { Instagram, Facebook, Linkedin } from "lucide-react";
 import { NAV_LINKS, SOCIAL_LINKS, CONTACT_INFO } from "@/data/content";
-import grandeurLogo from "@/assets/grandeur-logo.png";
+import grandeurLogoWhite from "@/assets/grandeur-logo-white.png";
 
 const Footer = () => (
   <footer className="bg-foreground text-background py-16">
     <div className="container-main">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
         <div className="md:col-span-2">
-          <img src="/grandeur-logo-new.png" alt="Grandeur" className="h-12 w-auto mb-4 brightness-0 invert" />
+          <img src={grandeurLogoWhite} alt="Grandeur" className="h-12 w-auto mb-4" />
           <p className="text-background/70 text-sm leading-relaxed max-w-md">
             The Consulting and Knowledge Cell of Shaheed Sukhdev College of Business Studies, University of Delhi.
           </p>
