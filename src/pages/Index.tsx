@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Briefcase, Trophy, BookOpen, Mic, FileText, Target } from "lucide-react";
+import { ArrowUpRight, Briefcase, BookOpen, Clock3, FileText, MapPin, Mic, Target, Trophy } from "lucide-react";
 import grandeurLogoHero from "@/assets/grandeur-logo-hero.png";
 import heroBg from "@/assets/hero-bg.jpeg";
 import collabKrg from "@/assets/collab-krg.png";
@@ -36,6 +36,22 @@ const isInvictaLive = () => new Date() <= INVICTA_DEADLINE;
 // PARTH EXECUTION — 11:47 AM IST April 6 2026
 const PARTH_DEADLINE = new Date("2026-04-06T11:47:00+05:30");
 const isParthLive = () => new Date() < PARTH_DEADLINE;
+
+const ECHELON_REGISTRATION_DEADLINE = new Date("2026-04-20T12:00:00+05:30");
+const isEchelonLive = () => new Date() < ECHELON_REGISTRATION_DEADLINE;
+
+const ECHELON_ROUNDS = [
+  {
+    title: "Quiz Round",
+    description: "30-minute Unstop elimination quiz with 25 MCQs across business awareness, logic, finance, strategy, and market concepts.",
+    timeline: "Published on Unstop as the first stage",
+  },
+  {
+    title: "Offline Round",
+    description: "On-campus simulation challenge with a live business scenario, dynamic changes, and a final strategy presentation.",
+    timeline: "Published on Unstop as the final stage",
+  },
+];
 
 const useCountdown = (deadline: Date) => {
   const calc = () => {
@@ -150,8 +166,38 @@ const ParthCountdown = ({ deadline }: { deadline: Date }) => {
   );
 };
 
+const EchelonCountdown = ({ deadline }: { deadline: Date }) => {
+  const time = useCountdown(deadline);
+  const isDone = time.days === 0 && time.hours === 0 && time.minutes === 0 && time.seconds === 0;
+
+  return (
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+      {[
+        { value: time.days, label: "Days" },
+        { value: time.hours, label: "Hours" },
+        { value: time.minutes, label: "Minutes" },
+        { value: time.seconds, label: "Seconds" },
+      ].map((unit) => (
+        <div
+          key={unit.label}
+          className="rounded-2xl border border-white/15 bg-white/8 px-4 py-5 text-center backdrop-blur"
+        >
+          <div className="font-heading text-3xl font-bold text-white tabular-nums md:text-4xl">
+            {String(unit.value).padStart(2, "0")}
+          </div>
+          <div className="mt-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/55">
+            {unit.label}
+          </div>
+        </div>
+      ))}
+      {isDone && <p className="col-span-full text-sm text-white/70">Registrations have closed.</p>}
+    </div>
+  );
+};
+
 const Home = () => {
   const invictaLive = isInvictaLive();
+  const echelonLive = isEchelonLive();
   const countdown = useCountdown(INVICTA_DEADLINE);
   const { scrollY } = useScroll();
   const heroBgY = useTransform(scrollY, [0, 600], [0, 120]);
@@ -327,6 +373,84 @@ const Home = () => {
     </section>}
 
     {/* WHO WE ARE — fade left/right split */}
+    {echelonLive && (
+      <section className="section-padding bg-background-alt">
+        <div className="container-main">
+          <ScrollReveal variant="scaleUp">
+            <div className="relative overflow-hidden rounded-[2rem] border border-border bg-slate-950 px-6 py-8 md:px-10 md:py-12">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.28),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(249,115,22,0.24),_transparent_35%)]" />
+              <div className="absolute inset-y-0 right-0 w-1/2 bg-[linear-gradient(135deg,transparent_0%,rgba(255,255,255,0.05)_100%)]" />
+
+              <div className="relative z-10 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
+                <div>
+                  <span className="inline-flex items-center rounded-full border border-sky-400/25 bg-sky-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.28em] text-sky-200">
+                    Coming Soon
+                  </span>
+                  <h2 className="mt-5 font-heading text-3xl font-bold text-white md:text-5xl">
+                    Echelon: The Simulation Challenge
+                  </h2>
+                  <p className="mt-4 max-w-2xl text-base leading-7 text-white/72 md:text-lg">
+                    Grandeur&apos;s latest competition is now live on Unstop with a quiz round followed by an on-campus simulation finale.
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-3 text-sm text-white/72">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-4 py-2">
+                      <Clock3 size={16} className="text-sky-300" />
+                      Registrations close 20 Apr&apos;26, 12:00 PM IST
+                    </span>
+                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/6 px-4 py-2">
+                      <MapPin size={16} className="text-orange-300" />
+                      SSCBS, Delhi
+                    </span>
+                  </div>
+
+                  <div className="mt-8 grid gap-4 md:grid-cols-2">
+                    {ECHELON_ROUNDS.map((round, index) => (
+                      <div key={round.title} className="rounded-2xl border border-white/10 bg-white/6 p-5 backdrop-blur">
+                        <div className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-200/85">
+                          Round {index + 1}
+                        </div>
+                        <h3 className="mt-3 font-heading text-xl font-bold text-white">{round.title}</h3>
+                        <p className="mt-3 text-sm leading-6 text-white/68">{round.description}</p>
+                        <p className="mt-4 text-xs uppercase tracking-[0.22em] text-white/42">{round.timeline}</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <a
+                      href="https://unstop.com/competitions/echelon-the-simulation-challenge-shaheed-sukhdev-college-of-business-studies-sscbs-du-delhi-1670580"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 rounded-lg bg-secondary px-6 py-3.5 text-sm font-semibold text-secondary-foreground transition-opacity hover:opacity-90"
+                    >
+                      View on Unstop
+                      <ArrowUpRight size={16} />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="rounded-[1.75rem] border border-white/10 bg-white/6 p-6 backdrop-blur md:p-7">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-sky-200/85">
+                    Countdown
+                  </p>
+                  <h3 className="mt-3 font-heading text-2xl font-bold text-white md:text-3xl">
+                    Until registrations close
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-white/65">
+                    This block follows the public Unstop timeline and hides itself automatically once that published window ends.
+                  </p>
+                  <div className="mt-6">
+                    <EchelonCountdown deadline={ECHELON_REGISTRATION_DEADLINE} />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+      </section>
+    )}
+
     <section className="section-padding bg-background-alt">
       <div className="container-main">
         <ScrollReveal variant="fadeUp">
