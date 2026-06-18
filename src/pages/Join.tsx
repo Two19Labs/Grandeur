@@ -89,26 +89,26 @@ const Join = () => (
       </div>
     </section>
 
-    {/* CTA */}
-    <section className="py-14 bg-primary/5 border-t border-border text-center">
-      <div className="container-main max-w-xl">
-        <h2 className="font-heading text-2xl font-bold mb-3">Applications for 2025-26 are closed.</h2>
-        <p className="text-foreground-secondary text-sm mb-6">Follow us on Instagram to be the first to know when the next cycle opens.</p>
-        <div className="flex flex-wrap gap-3 justify-center">
-          <a
-            href="https://www.instagram.com/grandeur.sscbs/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm"
+    {/* Recruitment Form */}
+    <section className="section-padding bg-primary/5 border-t border-border">
+      <div className="container-main max-w-3xl">
+        <SectionHeader
+          title="Recruitment Form"
+          subtitle="Fill out the form below to apply. We'll get back to you once applications are reviewed."
+        />
+        <div className="mt-8 rounded-xl overflow-hidden border border-border shadow-sm bg-background">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSeOrkizBxnXaeodqKC4bHrbcKPEQnDCcCum3bwUlX9mWMKFAw/viewform?embedded=true"
+            width="100%"
+            height="2712"
+            frameBorder="0"
+            marginHeight={0}
+            marginWidth={0}
+            title="Grandeur Recruitment Form"
+            className="block"
           >
-            Follow @grandeur.sscbs
-          </a>
-          <a
-            href="/contact"
-            className="px-8 py-3.5 border border-border text-foreground font-semibold rounded-lg hover:bg-muted transition-colors text-sm"
-          >
-            Ask a Question
-          </a>
+            Loading…
+          </iframe>
         </div>
       </div>
     </section>
