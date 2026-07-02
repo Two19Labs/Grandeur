@@ -25,14 +25,16 @@ const Publications = () => (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {PUBLICATIONS.map((p, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="card-base p-6 h-full flex flex-col">
+              <div className="card-base p-6 h-full flex flex-col group hover:shadow-lg transition-all duration-300">
                 <div className="h-40 rounded-lg overflow-hidden mb-4">
-                  <img src={PUB_IMAGES[i]} alt={p.title} className="w-full h-full object-cover" />
+                  <img src={PUB_IMAGES[i]} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <span className="text-xs font-semibold text-secondary uppercase tracking-wider mb-1">{p.category}</span>
-                <h3 className="font-heading font-bold text-lg mb-2">{p.title}</h3>
+                <h3 className="font-heading font-bold text-lg mb-2 transition-colors duration-300 group-hover:text-primary">{p.title}</h3>
                 <p className="text-foreground-secondary text-sm leading-relaxed flex-1">{p.description}</p>
-                <button className="mt-4 text-primary font-semibold text-sm hover:underline text-left">Read Report →</button>
+                <button className="mt-4 text-primary font-semibold text-sm hover:underline text-left">
+                  Read Report <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                </button>
               </div>
             </ScrollReveal>
           ))}

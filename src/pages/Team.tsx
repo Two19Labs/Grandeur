@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -20,13 +21,20 @@ interface Member {
   designation?: string;
 }
 
-// Lightbox
+// Lightbox with spring transition for a premium feel
 const Lightbox = ({ src, name, role, onClose }: { src: string; name: string; role: string; onClose: () => void }) => (
-  <div
+  <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
     className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
     onClick={onClose}
   >
-    <div
+    <motion.div
+      initial={{ scale: 0.9, opacity: 0, y: 20 }}
+      animate={{ scale: 1, opacity: 1, y: 0 }}
+      exit={{ scale: 0.9, opacity: 0, y: 20 }}
+      transition={{ type: "spring", stiffness: 300, damping: 28 }}
       className="relative max-w-sm w-full bg-background rounded-2xl overflow-hidden shadow-2xl"
       onClick={e => e.stopPropagation()}
     >
@@ -41,8 +49,8 @@ const Lightbox = ({ src, name, role, onClose }: { src: string; name: string; rol
         <h3 className="font-heading font-bold text-base">{name}</h3>
         <p className="text-foreground-secondary text-sm mt-0.5">{role}</p>
       </div>
-    </div>
-  </div>
+    </motion.div>
+  </motion.div>
 );
 
 interface TeamCardProps {
@@ -65,18 +73,18 @@ const TeamCard = ({ member, size = "md", onImageClick }: TeamCardProps) => {
     <div className="card-base overflow-hidden group hover:border-primary/30 transition-all duration-300">
       <div className={`relative ${size === "lg" ? "pt-8 pb-4" : "pt-6 pb-3"} flex flex-col items-center bg-gradient-to-b from-muted/60 to-transparent`}>
         <div
-          className={`${imgSize} rounded-full overflow-hidden border-2 border-border group-hover:border-primary/40 transition-colors flex-shrink-0 bg-muted flex items-center justify-center ${image && !isPlaceholder ? "cursor-zoom-in" : ""}`}
+          className={`${imgSize} rounded-full overflow-hidden border-2 border-border group-hover:border-primary/40 group-hover:scale-105 transition-all duration-300 flex-shrink-0 bg-muted flex items-center justify-center ${image && !isPlaceholder ? "cursor-zoom-in" : ""}`}
           onClick={() => image && !isPlaceholder && onImageClick?.(image, name, role)}
         >
           {image ? (
-            <img src={image} alt={name} className="w-full h-full object-cover object-top" />
+            <img src={image} alt={name} className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-110" />
           ) : (
-            <User className="text-muted-foreground" size={iconSize} />
+            <User className="text-muted-foreground transition-transform duration-300 group-hover:scale-110" size={iconSize} />
           )}
         </div>
       </div>
       <div className={`${size === "lg" ? "px-5 pb-5" : "px-4 pb-4"} text-center`}>
-        <h3 className={`font-heading font-bold ${size === "lg" ? "text-base" : "text-sm"} ${isPlaceholder ? "text-muted-foreground" : ""}`}>
+        <h3 className={`font-heading font-bold transition-colors duration-300 group-hover:text-primary ${size === "lg" ? "text-base" : "text-sm"} ${isPlaceholder ? "text-muted-foreground" : ""}`}>
           {isPlaceholder ? "Coming Soon" : name}
         </h3>
         <p className="text-foreground-secondary text-xs mt-0.5">{role}</p>
@@ -85,9 +93,9 @@ const TeamCard = ({ member, size = "md", onImageClick }: TeamCardProps) => {
             href={linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 mt-3 text-xs text-foreground-secondary hover:text-[#0077B5] transition-colors font-medium"
+            className="inline-flex items-center gap-1.5 mt-3 text-xs text-foreground-secondary hover:text-[#0077B5] transition-colors duration-300 font-medium group/link"
           >
-            <Linkedin size={13} />
+            <Linkedin size={13} className="transition-transform duration-300 group-hover/link:scale-115 group-hover/link:rotate-6" />
             LinkedIn
           </a>
         )}
@@ -102,18 +110,18 @@ const FacultyCard = ({ member, onImageClick }: { member: Member; onImageClick?: 
     <div className="card-base overflow-hidden group hover:border-primary/30 transition-all duration-300">
       <div className="pt-8 pb-4 flex flex-col items-center bg-gradient-to-b from-muted/60 to-transparent">
         <div
-          className={`w-24 h-24 rounded-full overflow-hidden border-2 border-border group-hover:border-primary/40 transition-colors bg-muted flex items-center justify-center ${imgSrc ? "cursor-zoom-in" : ""}`}
+          className={`w-24 h-24 rounded-full overflow-hidden border-2 border-border group-hover:border-primary/40 group-hover:scale-105 transition-all duration-300 bg-muted flex items-center justify-center ${imgSrc ? "cursor-zoom-in" : ""}`}
           onClick={() => imgSrc && onImageClick?.(imgSrc, member.name, member.designation || "")}
         >
           {imgSrc ? (
-            <img src={imgSrc} alt={member.name} className="w-full h-full object-cover object-top" />
+            <img src={imgSrc} alt={member.name} className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-110" />
           ) : (
-            <User className="text-muted-foreground" size={30} />
+            <User className="text-muted-foreground transition-transform duration-300 group-hover:scale-110" size={30} />
           )}
         </div>
       </div>
       <div className="px-5 pb-6 text-center">
-        <h3 className="font-heading font-bold text-base">{member.name}</h3>
+        <h3 className="font-heading font-bold text-base transition-colors duration-300 group-hover:text-primary">{member.name}</h3>
         <p className="text-foreground-secondary text-xs mt-0.5">{member.designation}</p>
       </div>
     </div>
@@ -128,7 +136,9 @@ const Team = () => {
 
   return (
     <div>
-      {lightbox && <Lightbox {...lightbox} onClose={closeLightbox} />}
+      <AnimatePresence>
+        {lightbox && <Lightbox {...lightbox} onClose={closeLightbox} />}
+      </AnimatePresence>
 
       <PageHero title="Our Team" subtitle="The people behind the legacy." />
 

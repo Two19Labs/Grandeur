@@ -65,7 +65,7 @@ const Contact = () => {
                         type="text" required value={form.name}
                         onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                         placeholder="Your full name"
-                        className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition"
+                        className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary focus:shadow-[0_0_15px_rgba(20,40,80,0.08)] outline-none transition-all duration-300"
                       />
                     </div>
                     <div>
@@ -74,7 +74,7 @@ const Contact = () => {
                         type="email" required value={form.email}
                         onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
                         placeholder="you@example.com"
-                        className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition"
+                        className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary focus:shadow-[0_0_15px_rgba(20,40,80,0.08)] outline-none transition-all duration-300"
                       />
                     </div>
                   </div>
@@ -83,7 +83,7 @@ const Contact = () => {
                     <select
                       value={form.subject}
                       onChange={e => setForm(f => ({ ...f, subject: e.target.value }))}
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition"
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary focus:shadow-[0_0_15px_rgba(20,40,80,0.08)] outline-none transition-all duration-300"
                     >
                       {SUBJECTS.map(s => <option key={s}>{s}</option>)}
                     </select>
@@ -94,7 +94,7 @@ const Contact = () => {
                       required rows={5} value={form.message}
                       onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
                       placeholder="Tell us what's on your mind..."
-                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition resize-none"
+                      className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary focus:shadow-[0_0_15px_rgba(20,40,80,0.08)] outline-none transition-all duration-300 resize-none"
                     />
                   </div>
 
@@ -108,7 +108,7 @@ const Contact = () => {
                   <button
                     type="submit"
                     disabled={status === "sending"}
-                    className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity flex items-center gap-2 disabled:opacity-60"
+                    className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center gap-2 disabled:opacity-60"
                   >
                     {status === "sending"
                       ? <><Loader size={16} className="animate-spin" /> Sending...</>

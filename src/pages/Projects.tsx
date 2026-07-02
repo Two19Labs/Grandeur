@@ -21,14 +21,14 @@ const Projects = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROJECTS.map((p, i) => (
             <ScrollReveal key={i} delay={i * 0.05}>
-              <div className="card-base p-6 h-full flex flex-col">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Briefcase className="text-primary" size={22} />
+              <div className="card-base p-6 h-full flex flex-col group hover:shadow-lg transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-primary/20 group-hover:rotate-3 transition-all duration-300">
+                  <Briefcase className="text-primary transition-transform duration-300 group-hover:scale-105" size={22} />
                 </div>
-                <h3 className="font-heading font-bold text-lg">{p.company}</h3>
+                <h3 className="font-heading font-bold text-lg transition-colors duration-300 group-hover:text-primary">{p.company}</h3>
                 <p className="text-xs text-foreground-secondary mb-1">{p.info}</p>
                 <div className="flex gap-2 my-3">
-                  <span className="text-xs font-semibold px-2.5 py-1 bg-primary/10 text-primary rounded-full">{p.role}</span>
+                  <span className="text-xs font-semibold px-2.5 py-1 bg-primary/10 text-primary rounded-full group-hover:shadow-[0_0_12px_rgba(30,58,138,0.2)] transition-shadow duration-300">{p.role}</span>
                   <span className="text-xs font-semibold px-2.5 py-1 bg-muted text-foreground-secondary rounded-full">{p.duration}</span>
                 </div>
                 <p className="text-foreground-secondary text-sm leading-relaxed flex-1">{p.description}</p>

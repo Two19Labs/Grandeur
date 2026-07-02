@@ -35,16 +35,16 @@ const Join = () => (
         <SectionHeader title="Selection Process" subtitle="A simple, merit-based process designed to find people who love thinking about business problems." />
         <div className="relative mt-10">
           {/* Vertical line */}
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-border hidden md:block" />
+          <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/30 via-primary/10 to-transparent hidden md:block" />
           <div className="flex flex-col gap-8">
             {JOIN_PROCESS.map((step, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="flex gap-6 items-start">
-                  <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-heading font-bold text-lg flex-shrink-0 relative z-10">
+                <div className="flex gap-6 items-start group relative">
+                  <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-heading font-bold text-lg flex-shrink-0 relative z-10 group-hover:bg-secondary group-hover:text-secondary-foreground group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(245,158,11,0.4)] transition-all duration-300">
                     {step.step}
                   </div>
-                  <div className="card-base p-6 flex-1">
-                    <h3 className="font-heading font-bold text-base mb-1">{step.title}</h3>
+                  <div className="card-base p-6 flex-1 transition-all duration-300 group-hover:shadow-lg">
+                    <h3 className="font-heading font-bold text-base mb-1 transition-colors duration-300 group-hover:text-primary">{step.title}</h3>
                     <p className="text-foreground-secondary text-sm leading-relaxed">{step.description}</p>
                   </div>
                 </div>

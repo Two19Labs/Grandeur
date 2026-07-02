@@ -105,30 +105,30 @@ const TAG_COLORS: Record<string, string> = {
 const ResourceCard = ({ r }: { r: typeof RESOURCES[0] }) => (
   <div className="card-base p-6 h-full flex flex-col group hover:border-primary/30 transition-all duration-300">
     <div className="flex items-start justify-between mb-4">
-      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-        <FileText className="text-primary" size={18} />
+      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
+        <FileText className="text-primary transition-transform duration-300 group-hover:scale-105" size={18} />
       </div>
-      <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${TAG_COLORS[r.tag] || "bg-muted text-foreground-secondary border-border"}`}>
+      <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border transition-all duration-300 group-hover:shadow-sm ${TAG_COLORS[r.tag] || "bg-muted text-foreground-secondary border-border"}`}>
         {r.tag}
       </span>
     </div>
-    <h3 className="font-heading font-bold text-base mb-2">{r.title}</h3>
+    <h3 className="font-heading font-bold text-base mb-2 transition-colors duration-300 group-hover:text-primary">{r.title}</h3>
     <p className="text-foreground-secondary text-sm leading-relaxed flex-1">{r.description}</p>
-    <div className="mt-5 flex gap-3">
+    <div className="mt-5 flex gap-4">
       <a
         href={r.file}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-1.5 text-sm text-foreground-secondary hover:text-primary transition-colors font-medium"
+        className="flex items-center gap-1.5 text-sm text-foreground-secondary hover:text-primary transition-colors font-medium group/view"
       >
-        <ExternalLink size={14} /> View
+        <ExternalLink size={14} className="transition-transform duration-300 group-hover/view:scale-110 group-hover/view:-translate-y-0.5 group-hover/view:translate-x-0.5" /> View
       </a>
       <a
         href={r.file}
         download
-        className="flex items-center gap-1.5 text-sm text-primary font-semibold hover:opacity-80 transition-opacity"
+        className="flex items-center gap-1.5 text-sm text-primary font-semibold hover:opacity-80 transition-opacity group/dl"
       >
-        <Download size={14} /> Download
+        <Download size={14} className="transition-transform duration-300 group-hover/dl:translate-y-0.5" /> Download
       </a>
     </div>
   </div>

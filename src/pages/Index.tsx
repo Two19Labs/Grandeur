@@ -192,6 +192,36 @@ const Home = () => {
           style={{ y: heroBgY }}
         />
         <div className="absolute inset-0 bg-black/45" />
+        {/* Floating consulting tags */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-10">
+          {[
+            { text: "Strategy", top: "15%", left: "10%", delay: 0 },
+            { text: "Finance", top: "25%", right: "8%", delay: 1.5 },
+            { text: "Growth", bottom: "30%", left: "15%", delay: 3 },
+            { text: "Valuation", bottom: "20%", right: "12%", delay: 0.8 },
+            { text: "MECE", top: "45%", left: "8%", delay: 2.2 },
+            { text: "Research", bottom: "45%", right: "15%", delay: 1.8 }
+          ].map((tag, idx) => (
+            <motion.span
+              key={idx}
+              className="absolute hidden md:inline-block px-3.5 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-xs font-medium text-white/40 font-accent"
+              style={{ top: tag.top, left: tag.left, right: tag.right }}
+              animate={{
+                y: [0, -12, 12, 0],
+                x: [0, 6, -6, 0],
+                opacity: [0.3, 0.5, 0.3],
+              }}
+              transition={{
+                duration: 6 + idx,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: tag.delay,
+              }}
+            >
+              {tag.text}
+            </motion.span>
+          ))}
+        </div>
         <div className="container-main relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -281,6 +311,36 @@ const Home = () => {
     <section className="pt-36 pb-20 md:pt-44 md:pb-28 relative overflow-hidden">
       <motion.img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover blur-[3px] scale-105" style={{ y: heroBgY }} />
       <div className="absolute inset-0 bg-black/45" />
+      {/* Floating consulting tags */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-10">
+        {[
+          { text: "Strategy", top: "15%", left: "10%", delay: 0 },
+          { text: "Finance", top: "25%", right: "8%", delay: 1.5 },
+          { text: "Growth", bottom: "30%", left: "15%", delay: 3 },
+          { text: "Valuation", bottom: "20%", right: "12%", delay: 0.8 },
+          { text: "MECE", top: "45%", left: "8%", delay: 2.2 },
+          { text: "Research", bottom: "45%", right: "15%", delay: 1.8 }
+        ].map((tag, idx) => (
+          <motion.span
+            key={idx}
+            className="absolute hidden md:inline-block px-3.5 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-xs font-medium text-white/40 font-accent"
+            style={{ top: tag.top, left: tag.left, right: tag.right }}
+            animate={{
+              y: [0, -12, 12, 0],
+              x: [0, 6, -6, 0],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 6 + idx,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: tag.delay,
+            }}
+          >
+            {tag.text}
+          </motion.span>
+        ))}
+      </div>
       <div className="container-main relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center max-w-4xl mx-auto">
           <img src={grandeurLogoHero} alt="Grandeur" className="h-28 md:h-40 w-auto mx-auto mb-8 drop-shadow-2xl" />
@@ -651,7 +711,7 @@ const Home = () => {
           <SectionHeader title="Our Collaborators" />
         </div>
       </ScrollReveal>
-      <div className="relative">
+      <div className="relative overflow-hidden mask-horizontal-fade">
         <div className="flex animate-marquee w-max items-center">
           {[...COLLABORATORS, ...COLLABORATORS].map((c, i) => (
             <div key={i} className="mx-10 px-14 py-12 rounded-2xl bg-background shadow-lg border border-border flex flex-col items-center gap-6 whitespace-nowrap min-w-[280px]">

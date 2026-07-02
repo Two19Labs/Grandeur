@@ -20,6 +20,7 @@ import NotFound from "./pages/NotFound";
 import KnowledgeHub from "./pages/KnowledgeHub";
 import Events from "./pages/Events";
 import Join from "./pages/Join";
+import FloatingGlow from "@/components/FloatingGlow";
 
 const queryClient = new QueryClient();
 
@@ -30,7 +31,12 @@ const ScrollToTopOnNav = () => {
 };
 
 const PageWrapper = ({ children }: { children: React.ReactNode }) => (
-  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }}>
+  <motion.div
+    initial={{ opacity: 0, y: 15 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ type: "spring", stiffness: 200, damping: 25 }}
+  >
     {children}
   </motion.div>
 );
@@ -63,11 +69,12 @@ const App = () => (
       <Sonner />
       <HashRouter>
         <ScrollToTopOnNav />
+        <FloatingGlow />
         <div className="fixed top-0 left-0 right-0 z-50 flex flex-col">
           <AnnouncementTicker />
           <Navbar />
         </div>
-        <main className="min-h-screen">
+        <main className="relative z-10 min-h-screen">
           <AppRoutes />
         </main>
         <Footer />

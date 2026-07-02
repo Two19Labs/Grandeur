@@ -29,13 +29,16 @@ const Events = () => (
     <EchelonCountdown />
 
     <section className="section-padding">
-      <div className="container-main max-w-4xl">
+      <div className="container-main max-w-4xl relative border-l border-primary/20 pl-6 md:pl-10 ml-4 md:ml-8">
         {EVENTS_ARCHIVE.map((yearBlock, yi) => (
           <ScrollReveal key={yi} delay={yi * 0.1}>
-            <div className="mb-14">
+            <div className="relative mb-14">
+              {/* Timeline dot */}
+              <div className="absolute -left-[31px] md:-left-[47px] top-2.5 w-4 h-4 rounded-full bg-primary border-4 border-background z-10 shadow-sm animate-pulse" />
+              
               {/* Year header */}
               <div className="flex items-center gap-4 mb-6">
-                <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-lg">
+                <div className="flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-lg group hover:bg-primary/20 transition-all duration-300">
                   <Calendar size={16} className="text-primary" />
                   <span className="font-heading font-bold text-primary">{yearBlock.year}</span>
                 </div>
@@ -46,14 +49,14 @@ const Events = () => (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pl-2">
                 {yearBlock.events.map((event, ei) => (
                   <ScrollReveal key={ei} delay={ei * 0.06}>
-                    <div className="card-base p-5 h-full flex flex-col">
+                    <div className="card-base p-5 h-full flex flex-col group hover:shadow-lg transition-all duration-300">
                       <div className="flex items-center gap-2 mb-3">
                         <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full ${typeColor[event.type] || "bg-muted text-foreground-secondary"}`}>
                           {typeIcon[event.type]}
                           {event.type}
                         </span>
                       </div>
-                      <h3 className="font-heading font-bold text-sm mb-2">{event.name}</h3>
+                      <h3 className="font-heading font-bold text-sm mb-2 group-hover:text-primary transition-colors duration-300">{event.name}</h3>
                       <p className="text-foreground-secondary text-xs leading-relaxed flex-1">{event.description}</p>
                       {event.highlight && (
                         <div className="mt-3 pt-3 border-t border-border">

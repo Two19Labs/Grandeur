@@ -27,12 +27,12 @@ const AchievementsPage = () => (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
           {ACHIEVEMENTS.map((a, i) => (
             <ScrollReveal key={i} delay={i * 0.05}>
-              <div className="card-base p-5 flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center flex-shrink-0">
-                  <Trophy className="text-secondary" size={18} />
+              <div className="card-base p-5 flex items-start gap-4 group hover:shadow-lg transition-all duration-300">
+                <div className="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
+                  <Trophy className="text-secondary transition-transform duration-300 group-hover:scale-105" size={18} />
                 </div>
                 <div>
-                  <h3 className="font-heading font-bold text-sm">{a.title}</h3>
+                  <h3 className="font-heading font-bold text-sm transition-colors duration-300 group-hover:text-primary">{a.title}</h3>
                   {a.institution && <p className="text-foreground-secondary text-sm">{a.institution}</p>}
                   {a.note && <p className="text-xs text-primary font-medium mt-0.5">{a.note}</p>}
                 </div>
@@ -48,10 +48,10 @@ const AchievementsPage = () => (
       <div className="container-main mb-8">
         <SectionHeader title="Where We've Competed & Won" />
       </div>
-      <div className="relative">
+      <div className="relative overflow-hidden mask-horizontal-fade">
         <div className="flex animate-marquee w-max">
           {[...INSTITUTION_LOGOS, ...INSTITUTION_LOGOS].map((inst, i) => (
-            <div key={i} className="mx-4 px-6 py-3 rounded-lg bg-muted text-foreground-secondary font-medium text-sm whitespace-nowrap">
+            <div key={i} className="mx-4 px-6 py-3 rounded-lg bg-muted hover:bg-primary/5 hover:text-primary transition-colors duration-300 text-foreground-secondary font-medium text-sm whitespace-nowrap">
               {inst}
             </div>
           ))}

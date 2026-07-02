@@ -97,11 +97,11 @@ const About = () => (
             },
           ].map((item, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="card-base p-8 text-center h-full group hover:shadow-lg transition-shadow duration-300">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 transition-colors duration-300">
-                  <item.Icon className="text-primary" size={26} />
+              <div className="card-base p-8 text-center h-full group hover:shadow-lg transition-all duration-300">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+                  <item.Icon className="text-primary transition-transform duration-300 group-hover:scale-105" size={26} />
                 </div>
-                <h3 className="font-heading font-bold text-lg mb-3">{item.title}</h3>
+                <h3 className="font-heading font-bold text-lg mb-3 transition-colors duration-300 group-hover:text-primary">{item.title}</h3>
                 <p className="text-foreground-secondary text-sm leading-relaxed">{item.desc}</p>
               </div>
             </ScrollReveal>
@@ -117,11 +117,11 @@ const About = () => (
         <div className="flex flex-wrap justify-center gap-6 max-w-2xl mx-auto">
           {FACULTY_ADVISORS.map((f, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="card-base p-8 text-center w-56">
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                  <User className="text-primary" size={30} />
+              <div className="card-base p-8 text-center w-56 group hover:shadow-lg transition-all duration-300">
+                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
+                  <User className="text-primary transition-transform duration-300 group-hover:scale-105" size={30} />
                 </div>
-                <h3 className="font-heading font-bold text-base">{f.name}</h3>
+                <h3 className="font-heading font-bold text-base transition-colors duration-300 group-hover:text-primary">{f.name}</h3>
                 <p className="text-foreground-secondary text-xs mt-1 leading-snug">{f.designation}</p>
               </div>
             </ScrollReveal>
@@ -151,15 +151,24 @@ const About = () => (
                 { value: "A+", label: "NAAC Grade", sub: "CGPA 3.46" },
                 { value: "101-105", label: "NIRF Rank", sub: "Among All Colleges" },
                 { value: "30+", label: "Student Societies", sub: "Highest in DU" },
-              ].map((stat, i) => (
-                <ScrollReveal key={i} delay={i * 0.08}>
-                  <div className="card-base p-5 text-center">
-                    <div className="font-heading text-2xl font-bold text-primary mb-1">{stat.value}</div>
-                    <div className="font-semibold text-sm text-foreground mb-0.5">{stat.label}</div>
-                    <div className="text-foreground-secondary text-xs">{stat.sub}</div>
-                  </div>
-                </ScrollReveal>
-              ))}
+              ].map((stat, i) => {
+                const borderColors = [
+                  "border-t-primary",
+                  "border-t-secondary",
+                  "border-t-accent-blue",
+                  "border-t-accent-red"
+                ];
+                const borderColor = borderColors[i % borderColors.length];
+                return (
+                  <ScrollReveal key={i} delay={i * 0.08}>
+                    <div className={`card-base p-5 text-center border-t-4 ${borderColor} group hover:shadow-md transition-all duration-300`}>
+                      <div className="font-heading text-2xl font-bold text-primary mb-1 transition-transform duration-300 group-hover:scale-110 inline-block">{stat.value}</div>
+                      <div className="font-semibold text-sm text-foreground mb-0.5">{stat.label}</div>
+                      <div className="text-foreground-secondary text-xs">{stat.sub}</div>
+                    </div>
+                  </ScrollReveal>
+                );
+              })}
             </div>
           </div>
         </ScrollReveal>
