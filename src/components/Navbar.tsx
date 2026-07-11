@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Mail } from "lucide-react";
 import { NAV_LINKS } from "@/data/content";
-import ThemeToggle from "./ThemeToggle";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,41 +24,33 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop nav */}
-        <div className="hidden lg:flex items-center gap-2">
-          <div className="flex items-center gap-1">
-            {NAV_LINKS.map(link => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors rounded-md hover:bg-muted ${
-                  location.pathname === link.path
-                    ? "text-primary border-b-2 border-primary"
-                    : "text-foreground-secondary hover:text-foreground"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-          <div className="flex items-center gap-2 border-l border-border/50 pl-2">
-            <ThemeToggle />
+        <div className="hidden lg:flex items-center gap-1">
+          {NAV_LINKS.map(link => (
             <Link
-              to="/contact"
-              className="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
-              title="Get In Touch"
+              key={link.path}
+              to={link.path}
+              className={`px-3 py-2 text-sm font-medium whitespace-nowrap transition-colors rounded-md hover:bg-muted ${
+                location.pathname === link.path
+                  ? "text-primary border-b-2 border-primary"
+                  : "text-foreground-secondary hover:text-foreground"
+              }`}
             >
-              <Mail size={18} />
+              {link.label}
             </Link>
-          </div>
+          ))}
+          <Link
+            to="/contact"
+            className="ml-3 w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
+            title="Get In Touch"
+          >
+            <Mail size={18} />
+          </Link>
         </div>
 
-        {/* Mobile menu controls */}
-        <div className="lg:hidden flex items-center gap-2">
-          <ThemeToggle />
-          <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-foreground">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+        {/* Mobile toggle */}
+        <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden p-2 text-foreground">
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
 
       {/* Mobile menu */}

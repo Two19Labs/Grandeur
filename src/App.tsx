@@ -21,7 +21,6 @@ import KnowledgeHub from "./pages/KnowledgeHub";
 import Events from "./pages/Events";
 import Join from "./pages/Join";
 import FloatingGlow from "@/components/FloatingGlow";
-import { ThemeProvider } from "next-themes";
 
 const queryClient = new QueryClient();
 
@@ -65,25 +64,23 @@ const AppRoutes = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <HashRouter>
-          <ScrollToTopOnNav />
-          <FloatingGlow />
-          <div className="fixed top-0 left-0 right-0 z-50 flex flex-col">
-            <AnnouncementTicker />
-            <Navbar />
-          </div>
-          <main className="relative z-10 min-h-screen">
-            <AppRoutes />
-          </main>
-          <Footer />
-          <ScrollToTop />
-        </HashRouter>
-      </TooltipProvider>
-    </ThemeProvider>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <HashRouter>
+        <ScrollToTopOnNav />
+        <FloatingGlow />
+        <div className="fixed top-0 left-0 right-0 z-50 flex flex-col">
+          <AnnouncementTicker />
+          <Navbar />
+        </div>
+        <main className="relative z-10 min-h-screen">
+          <AppRoutes />
+        </main>
+        <Footer />
+        <ScrollToTop />
+      </HashRouter>
+    </TooltipProvider>
   </QueryClientProvider>
 );
 
