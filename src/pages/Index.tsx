@@ -181,19 +181,110 @@ const Home = () => {
   const activityImages = [imgProjects, imgLectures, imgCases, imgResearch, imgEvents];
 
   return (
-  <div>
-    {/* DEFAULT HERO */}
-    <section className="pt-36 pb-20 md:pt-44 md:pb-28 relative overflow-hidden">
-      <motion.img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover blur-[3px] scale-105" style={{ y: heroBgY }} />
-      <div className="absolute inset-0 bg-black/45" />
-      <div className="container-main relative z-10">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center max-w-4xl mx-auto">
-          <img src={grandeurLogoHero} alt="Grandeur" className="h-28 md:h-40 w-auto mx-auto mb-8 drop-shadow-2xl" />
-          <p className="text-lg md:text-2xl text-white/70 font-medium mb-3">The Consulting & Knowledge Cell of SSCBS</p>
-          <p className="text-white/60 text-base md:text-lg max-w-2xl mx-auto mb-8">Delhi University's Oldest Consulting Society</p>
-        </motion.div>
-      </div>
-    </section>
+    <div>
+      {/* DEFAULT HERO */}
+      <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-28 pb-16 lg:py-0 bg-[#05020a]">
+        {/* Background glow effects */}
+        <div 
+          className="absolute top-1/4 left-1/4 w-[40rem] h-[40rem] rounded-full pointer-events-none opacity-20"
+          style={{ background: "radial-gradient(circle, rgba(139,0,255,0.4) 0%, transparent 70%)", filter: "blur(100px)" }}
+        />
+        <div 
+          className="absolute bottom-1/4 right-1/4 w-[35rem] h-[35rem] rounded-full pointer-events-none opacity-20"
+          style={{ background: "radial-gradient(circle, rgba(255,30,80,0.3) 0%, transparent 70%)", filter: "blur(90px)" }}
+        />
+        
+        {/* Subtle background grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
+
+        <div className="container-main relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Column: Content */}
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }} 
+              animate={{ opacity: 1, x: 0 }} 
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left"
+            >
+              <motion.img 
+                src={grandeurLogoHero} 
+                alt="Grandeur" 
+                className="h-20 md:h-28 w-auto mb-6 drop-shadow-[0_0_15px_rgba(139,0,255,0.3)]"
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-extrabold text-white tracking-tight mb-4 leading-tight">
+                The Consulting & <br className="hidden md:inline lg:hidden" />
+                <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+                  Knowledge Cell
+                </span> <br />
+                of SSCBS
+              </h1>
+              <p className="text-white/70 text-lg md:text-xl font-medium mb-2">
+                Delhi University's Oldest Consulting Society
+              </p>
+              <p className="text-white/50 text-sm md:text-base max-w-md mb-8">
+                Empowering future leaders through rigorous case analysis, corporate projects, and strategic insights.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <Link
+                  to="/about-us"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-3.5 text-sm font-semibold text-white transition-all hover:opacity-90 hover:scale-[1.02] shadow-[0_0_20px_rgba(139,0,255,0.4)]"
+                >
+                  Learn About Us
+                  <ArrowUpRight size={16} />
+                </Link>
+                <Link
+                  to="/team"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 backdrop-blur px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:scale-[1.02]"
+                >
+                  Meet the Team
+                </Link>
+              </div>
+            </motion.div>
+            
+            {/* Right Column: Image */}
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }} 
+              animate={{ opacity: 1, x: 0 }} 
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              className="lg:col-span-7 flex justify-center items-center"
+            >
+              <div className="relative group w-full max-w-2xl lg:max-w-none">
+                {/* Outer glowing border effect */}
+                <div className="absolute -inset-1.5 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200" />
+                
+                {/* The image container */}
+                <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-black/40 shadow-2xl">
+                  <img 
+                    src={heroBg} 
+                    alt="Grandeur SSCBS Team" 
+                    className="w-full h-auto object-contain transition-transform duration-700 ease-out group-hover:scale-[1.01]" 
+                  />
+                  
+                  {/* Subtle dark overlay at the bottom of the image for premium depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </div>
+            </motion.div>
+            
+          </div>
+        </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden lg:flex flex-col items-center gap-2 pointer-events-none">
+          <span className="text-white/30 text-xs font-semibold uppercase tracking-widest">Scroll to explore</span>
+          <motion.div 
+            className="w-5 h-9 border-2 border-white/20 rounded-full flex justify-center p-1"
+            animate={{ y: [0, 6, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <div className="w-1.5 h-1.5 bg-white/40 rounded-full" />
+          </motion.div>
+        </div>
+      </section>
 
     {/* PARTH EXECUTION BANNER — disappears at deadline */}
     {isParthLive() && <section className="relative overflow-hidden py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 40%, #0d1a3a 100%)" }}>
