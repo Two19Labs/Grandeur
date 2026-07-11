@@ -341,17 +341,13 @@ const Home = () => {
             { Icon: BookOpen, title: "Publications", desc: "In-depth industry and company analysis reports across sectors" },
           ].map((item, i) => (
             <motion.div key={i} variants={cardVariant}>
-              <motion.div
-                className="card-base p-8 text-center h-full"
-                whileHover={{ y: -6, boxShadow: "0 16px 40px rgba(0,0,0,0.12)" }}
-                transition={{ duration: 0.25 }}
-              >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-                  <item.Icon className="text-primary" size={26} />
+              <div className="card-base p-6 text-center h-full hover:border-primary/30 transition-colors duration-200">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <item.Icon className="text-primary" size={24} />
                 </div>
-                <h3 className="font-heading font-bold text-lg mb-2">{item.title}</h3>
+                <h3 className="font-heading font-bold text-base mb-2">{item.title}</h3>
                 <p className="text-foreground-secondary text-sm leading-relaxed">{item.desc}</p>
-              </motion.div>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -384,7 +380,7 @@ const Home = () => {
           <SectionHeader title="Our Cornerstone Activities" subtitle="Empowering student growth and corporate success through Strategic Consulting, Market Research, Financial Advisory, and Growth Marketing." />
         </ScrollReveal>
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-6 gap-6"
+          className="grid grid-cols-1 md:grid-cols-6 gap-4"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
@@ -403,7 +399,7 @@ const Home = () => {
             return (
               <motion.div
                 key={i}
-                className={`relative overflow-hidden rounded-2xl h-80 group ${gridSpans[i]}`}
+                className={`relative overflow-hidden rounded-lg h-72 group ${gridSpans[i]}`}
                 variants={cardVariant}
               >
                 {/* Background Image */}
@@ -420,7 +416,7 @@ const Home = () => {
                   <div className="w-10 h-10 rounded-lg bg-secondary/90 flex items-center justify-center mb-3">
                     <Icon className="text-secondary-foreground" size={20} />
                   </div>
-                  <h3 className="font-heading font-bold text-lg text-white mb-1 group-hover:text-secondary transition-colors">
+                  <h3 className="font-heading font-bold text-base text-white mb-1 group-hover:text-secondary transition-colors">
                     {a.title}
                   </h3>
                   <p className="text-slate-300 text-xs leading-relaxed">
@@ -452,21 +448,16 @@ const Home = () => {
           {PUBLICATIONS.map((p, i) => (
             <motion.div
               key={i}
-              variants={{ hidden: { opacity: 0, y: 50, rotateX: 12 }, visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1], delay: i * 0.12 } } }}
-              style={{ perspective: 900 }}
+              variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: i * 0.1 } } }}
             >
-              <motion.div
-                className="card-base p-6 h-full flex flex-col"
-                whileHover={{ y: -6 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="h-36 rounded-lg bg-muted flex items-center justify-center mb-4">
-                  <FileText className="text-muted-foreground" size={32} />
+              <div className="card-base p-6 h-full flex flex-col hover:border-primary/30 transition-colors duration-200">
+                <div className="h-32 rounded-lg bg-muted flex items-center justify-center mb-4">
+                  <FileText className="text-muted-foreground animate-pulse" size={28} />
                 </div>
-                <span className="text-xs font-semibold text-secondary uppercase tracking-wider mb-1">{p.category}</span>
-                <h3 className="font-heading font-bold mb-2">{p.title}</h3>
-                <p className="text-foreground-secondary text-sm leading-relaxed flex-1">{p.description}</p>
-              </motion.div>
+                <span className="text-[10px] font-extrabold text-primary uppercase tracking-widest mb-1.5">{p.category}</span>
+                <h3 className="font-heading font-bold text-base mb-2">{p.title}</h3>
+                <p className="text-foreground-secondary text-xs leading-relaxed flex-1">{p.description}</p>
+              </div>
             </motion.div>
           ))}
         </motion.div>

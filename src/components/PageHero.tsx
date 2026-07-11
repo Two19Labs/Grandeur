@@ -6,7 +6,7 @@ interface PageHeroProps {
 }
 
 const PageHero = ({ title, subtitle }: PageHeroProps) => (
-  <section className="relative overflow-hidden pt-28 pb-12 md:pt-36 md:pb-16 gradient-hero border-b border-primary/20">
+  <section className="relative overflow-hidden pt-20 pb-8 md:pt-24 md:pb-10 gradient-hero border-b border-primary/20">
     {/* Clean blue theme with subtle opacity overlay */}
     <div className="absolute inset-0 bg-black/10" />
     <div 

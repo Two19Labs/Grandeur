@@ -54,11 +54,11 @@ const WhatWeDo = () => {
               const Icon = srv.icon;
               return (
                 <ScrollReveal key={i} delay={i * 0.08}>
-                  <div className="card-base p-8 h-full border-t-4 border-t-primary bg-white hover:shadow-lg transition-all duration-300">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                      <Icon className="text-primary" size={24} />
+                  <div className="card-base p-6 h-full border-t-4 border-t-primary bg-white hover:border-primary/45 transition-colors duration-200">
+                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                      <Icon className="text-primary" size={22} />
                     </div>
-                    <h3 className="font-heading text-xl font-bold mb-3 text-primary">{srv.title}</h3>
+                    <h3 className="font-heading text-lg font-bold mb-2 text-primary">{srv.title}</h3>
                     <p className="text-foreground-secondary leading-relaxed text-sm">
                       {srv.description}
                     </p>
@@ -81,15 +81,15 @@ const WhatWeDo = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             {PROJECTS.map((p, i) => (
               <ScrollReveal key={i} delay={i * 0.05}>
-                <div className="card-base p-6 h-full flex flex-col justify-between bg-white group hover:shadow-md transition-all duration-300">
+                <div className="card-base p-6 h-full flex flex-col justify-between bg-white group hover:border-primary/45 transition-colors duration-200">
                   <div>
                     <span className="text-[10px] uppercase font-bold tracking-widest text-primary bg-primary/10 px-3 py-1 rounded-full inline-block mb-3">
                       {p.role || "Consulting Team"}
                     </span>
-                    <h4 className="font-heading font-extrabold text-lg text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h4 className="font-heading font-extrabold text-base text-foreground mb-2 group-hover:text-primary transition-colors">
                       {p.company}
                     </h4>
-                    <p className="text-xs text-slate-400 mb-4 font-medium leading-relaxed">
+                    <p className="text-[11px] text-slate-400 mb-3 font-semibold leading-relaxed">
                       {p.info}
                     </p>
                     <p className="text-foreground-secondary text-sm leading-relaxed">
@@ -114,7 +114,7 @@ const WhatWeDo = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {SPEAKER_SESSIONS.map((speaker, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="card-base p-6 h-full bg-white border-t-4 border-t-secondary/60 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                <div className="card-base p-5 h-full bg-white border-t-4 border-t-secondary/60 hover:border-primary/45 transition-colors duration-200 flex flex-col justify-between">
                   <div>
                     <h4 className="font-heading font-bold text-base text-foreground mb-1">
                       {speaker.name}
@@ -148,7 +148,7 @@ const WhatWeDo = () => {
               { title: "ECHELON", type: "Simulation Challenge", desc: "Strategy and simulation event hosted offline at SSCBS testing financial and operational decisions." }
             ].map((ev, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="card-base p-6 h-full bg-white hover:shadow-md transition-all duration-300 flex flex-col justify-between">
+                <div className="card-base p-5 h-full bg-white hover:border-primary/45 transition-colors duration-200 flex flex-col justify-between">
                   <div>
                     <span className="text-[10px] uppercase font-bold tracking-widest text-secondary block mb-2">{ev.type}</span>
                     <h4 className="font-heading font-extrabold text-base text-foreground mb-2 group-hover:text-primary transition-colors">

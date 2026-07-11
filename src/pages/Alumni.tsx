@@ -35,13 +35,13 @@ const Alumni = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {batchBlock.members.map((member, mi) => (
                       <ScrollReveal key={mi} delay={mi * 0.05}>
-                        <div className="card-base p-6 h-full flex flex-col group hover:shadow-lg transition-all duration-300">
-                          <div className="flex items-center gap-4 mb-4">
-                            <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0 border border-slate-200 group-hover:scale-105 transition-transform duration-300">
-                              <User className="text-muted-foreground" size={20} />
+                        <div className="card-base p-5 h-full flex flex-col group hover:border-primary/45 transition-colors duration-200">
+                          <div className="flex items-center gap-3 mb-4">
+                            <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0 border border-slate-200 transition-transform">
+                              <User className="text-muted-foreground" size={18} />
                             </div>
                             <div>
-                              <h4 className="font-heading font-bold text-base transition-colors duration-300 group-hover:text-primary">
+                              <h4 className="font-heading font-bold text-base transition-colors duration-300">
                                 {member.name}
                               </h4>
                               <p className="text-xs text-foreground-secondary">{member.role}</p>

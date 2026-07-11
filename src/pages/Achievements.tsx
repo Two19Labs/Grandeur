@@ -149,14 +149,14 @@ const AchievementsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {ACHIEVEMENTS.map((a, i) => (
               <ScrollReveal key={i} delay={i * 0.05}>
-                <div className="card-base p-5 flex items-start gap-4 group hover:shadow-lg transition-all duration-300">
-                  <div className="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300">
-                    <Trophy className="text-secondary transition-transform duration-300 group-hover:scale-105" size={18} />
+                <div className="card-base p-4 flex items-start gap-3 hover:border-primary/45 transition-colors duration-200">
+                  <div className="w-8 h-8 rounded-lg bg-secondary/20 flex items-center justify-center flex-shrink-0">
+                    <Trophy className="text-secondary" size={16} />
                   </div>
                   <div>
-                    <h3 className="font-heading font-bold text-sm transition-colors duration-300 group-hover:text-primary">{a.title}</h3>
-                    {a.institution && <p className="text-foreground-secondary text-sm">{a.institution}</p>}
-                    {a.note && <p className="text-xs text-primary font-medium mt-0.5">{a.note}</p>}
+                    <h3 className="font-heading font-bold text-sm transition-colors duration-300">{a.title}</h3>
+                    {a.institution && <p className="text-foreground-secondary text-xs">{a.institution}</p>}
+                    {a.note && <p className="text-[10px] text-primary font-bold mt-0.5">{a.note}</p>}
                   </div>
                 </div>
               </ScrollReveal>
@@ -198,9 +198,9 @@ const AchievementsPage = () => {
               { firm: "Corporate Strategy (Mamaearth, Krafton)", roles: "Strategy Intern / Manager", count: 7 },
             ].map((item, i) => (
               <ScrollReveal key={i} delay={i * 0.05}>
-                <div className="card-base p-6 text-center h-full flex flex-col items-center justify-center bg-white border-dashed border-2 border-border/80 hover:border-primary/20 group transition-all duration-300">
-                  <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <User className="text-muted-foreground" size={22} />
+                <div className="card-base p-5 text-center h-full flex flex-col items-center justify-center bg-white border-dashed border-2 border-border/80 hover:border-primary/30 transition-colors duration-200">
+                  <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center mb-3">
+                    <User className="text-muted-foreground" size={20} />
                   </div>
                   <h4 className="font-heading font-extrabold text-sm text-foreground mb-1">{item.firm}</h4>
                   <p className="text-xs text-slate-400 mb-3 leading-tight">{item.roles}</p>

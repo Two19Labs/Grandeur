@@ -114,13 +114,13 @@ const About = () => (
               { year: "2023 - 2024", pages: "15 pages", size: "1.9 MB" }
             ].map((report, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="p-6 rounded-xl bg-white border border-border flex items-start gap-4 hover:shadow-md transition-shadow group">
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <FileText size={22} />
+                <div className="p-5 rounded-lg bg-white border border-border flex items-start gap-4 hover:border-primary/45 transition-colors duration-200 group">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 transition-transform">
+                    <FileText size={20} />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-heading font-extrabold text-sm text-foreground mb-0.5">Annual Report {report.year}</h4>
-                    <p className="text-xs text-foreground-secondary mb-3">{report.pages} · PDF · {report.size}</p>
+                    <p className="text-xs text-foreground-secondary mb-2">{report.pages} · PDF · {report.size}</p>
                     <a 
                       href="#" 
                       className="inline-flex items-center gap-1.5 text-xs text-primary font-extrabold hover:underline"
@@ -159,11 +159,11 @@ const About = () => (
             },
           ].map((item, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="card-base p-8 text-center h-full group hover:shadow-lg transition-all duration-300">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                  <item.Icon className="text-primary transition-transform duration-300 group-hover:scale-105" size={26} />
+              <div className="card-base p-6 text-center h-full hover:border-primary/45 transition-colors duration-200">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <item.Icon className="text-primary" size={24} />
                 </div>
-                <h3 className="font-heading font-bold text-lg mb-3 transition-colors duration-300 group-hover:text-primary">{item.title}</h3>
+                <h3 className="font-heading font-bold text-base mb-2">{item.title}</h3>
                 <p className="text-foreground-secondary text-sm leading-relaxed">{item.desc}</p>
               </div>
             </ScrollReveal>
@@ -179,11 +179,11 @@ const About = () => (
         <div className="flex flex-wrap justify-center gap-6 max-w-2xl mx-auto">
           {FACULTY_ADVISORS.map((f, i) => (
             <ScrollReveal key={i} delay={i * 0.1}>
-              <div className="card-base p-8 text-center w-56 group hover:shadow-lg transition-all duration-300">
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
-                  <User className="text-primary transition-transform duration-300 group-hover:scale-105" size={30} />
+              <div className="card-base p-6 text-center w-52 hover:border-primary/45 transition-colors duration-200">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <User className="text-primary" size={26} />
                 </div>
-                <h3 className="font-heading font-bold text-base transition-colors duration-300 group-hover:text-primary">{f.name}</h3>
+                <h3 className="font-heading font-bold text-base">{f.name}</h3>
                 <p className="text-foreground-secondary text-xs mt-1 leading-snug">{f.designation}</p>
               </div>
             </ScrollReveal>
