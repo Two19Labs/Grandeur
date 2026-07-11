@@ -6,7 +6,6 @@ import { HashRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
-import AnnouncementTicker from "@/components/AnnouncementTicker";
 import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
@@ -71,7 +70,6 @@ const App = () => (
         <ScrollToTopOnNav />
         <FloatingGlow />
         <div className="fixed top-0 left-0 right-0 z-50 flex flex-col">
-          <AnnouncementTicker />
           <Navbar />
         </div>
         <main className="relative z-10 min-h-screen">

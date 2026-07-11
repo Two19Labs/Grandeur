@@ -192,36 +192,6 @@ const Home = () => {
           style={{ y: heroBgY }}
         />
         <div className="absolute inset-0 bg-black/45" />
-        {/* Floating consulting tags */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-10">
-          {[
-            { text: "Strategy", top: "15%", left: "10%", delay: 0 },
-            { text: "Finance", top: "25%", right: "8%", delay: 1.5 },
-            { text: "Growth", bottom: "30%", left: "15%", delay: 3 },
-            { text: "Valuation", bottom: "20%", right: "12%", delay: 0.8 },
-            { text: "MECE", top: "45%", left: "8%", delay: 2.2 },
-            { text: "Research", bottom: "45%", right: "15%", delay: 1.8 }
-          ].map((tag, idx) => (
-            <motion.span
-              key={idx}
-              className="absolute hidden md:inline-block px-3.5 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-xs font-medium text-white/40 font-accent"
-              style={{ top: tag.top, left: tag.left, right: tag.right }}
-              animate={{
-                y: [0, -12, 12, 0],
-                x: [0, 6, -6, 0],
-                opacity: [0.3, 0.5, 0.3],
-              }}
-              transition={{
-                duration: 6 + idx,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: tag.delay,
-              }}
-            >
-              {tag.text}
-            </motion.span>
-          ))}
-        </div>
         <div className="container-main relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -311,44 +281,11 @@ const Home = () => {
     <section className="pt-36 pb-20 md:pt-44 md:pb-28 relative overflow-hidden">
       <motion.img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover blur-[3px] scale-105" style={{ y: heroBgY }} />
       <div className="absolute inset-0 bg-black/45" />
-      {/* Floating consulting tags */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none select-none z-10">
-        {[
-          { text: "Strategy", top: "15%", left: "10%", delay: 0 },
-          { text: "Finance", top: "25%", right: "8%", delay: 1.5 },
-          { text: "Growth", bottom: "30%", left: "15%", delay: 3 },
-          { text: "Valuation", bottom: "20%", right: "12%", delay: 0.8 },
-          { text: "MECE", top: "45%", left: "8%", delay: 2.2 },
-          { text: "Research", bottom: "45%", right: "15%", delay: 1.8 }
-        ].map((tag, idx) => (
-          <motion.span
-            key={idx}
-            className="absolute hidden md:inline-block px-3.5 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-xs font-medium text-white/40 font-accent"
-            style={{ top: tag.top, left: tag.left, right: tag.right }}
-            animate={{
-              y: [0, -12, 12, 0],
-              x: [0, 6, -6, 0],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{
-              duration: 6 + idx,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: tag.delay,
-            }}
-          >
-            {tag.text}
-          </motion.span>
-        ))}
-      </div>
       <div className="container-main relative z-10">
         <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center max-w-4xl mx-auto">
           <img src={grandeurLogoHero} alt="Grandeur" className="h-28 md:h-40 w-auto mx-auto mb-8 drop-shadow-2xl" />
           <p className="text-lg md:text-2xl text-white/70 font-medium mb-3">The Consulting & Knowledge Cell of SSCBS</p>
           <p className="text-white/60 text-base md:text-lg max-w-2xl mx-auto mb-8">Delhi University's Oldest Consulting Society</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/projects" className="px-8 py-3.5 bg-secondary text-secondary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm">Our Projects</Link>
-          </div>
         </motion.div>
       </div>
     </section>
