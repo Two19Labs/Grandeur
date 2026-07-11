@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import ScrollReveal from "@/components/ScrollReveal";
-import { FACULTY_ADVISORS } from "@/data/content";
-import { Users, Building, GraduationCap, User, Globe, Award } from "lucide-react";
+import { FACULTY_ADVISORS, JOURNEY_MILESTONES } from "@/data/content";
+import { Users, Building, GraduationCap, User, Globe, Award, FileText, Download } from "lucide-react";
 
 const About = () => (
   <div>
@@ -103,6 +103,39 @@ const About = () => (
       </div>
     </section>
 
+    {/* ANNUAL REPORTS */}
+    <section className="section-padding bg-slate-950 text-white border-y border-white/5">
+      <div className="container-main">
+        <ScrollReveal>
+          <SectionHeader title="Our Annual Reports" dark subtitle="Review our academic chapter performance, consulting case summaries, and operational milestones." />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+            {[
+              { year: "2024 - 2025", pages: "18 pages", size: "2.4 MB" },
+              { year: "2023 - 2024", pages: "15 pages", size: "1.9 MB" }
+            ].map((report, i) => (
+              <ScrollReveal key={i} delay={i * 0.1}>
+                <div className="p-6 rounded-xl bg-white/5 border border-white/10 flex items-start gap-4 hover:bg-white/10 transition-colors group">
+                  <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <FileText size={22} />
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-heading font-extrabold text-sm text-white mb-0.5">Annual Report {report.year}</h4>
+                    <p className="text-xs text-slate-400 mb-3">{report.pages} · PDF · {report.size}</p>
+                    <a 
+                      href="#" 
+                      className="inline-flex items-center gap-1.5 text-xs text-secondary font-bold hover:underline"
+                    >
+                      <Download size={12} /> Download Report
+                    </a>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+
     {/* WHY GRANDEUR */}
     <section className="section-padding">
       <div className="container-main">
@@ -156,6 +189,37 @@ const About = () => (
             </ScrollReveal>
           ))}
         </div>
+      </div>
+    </section>
+
+    {/* OUR JOURNEY TIMELINE */}
+    <section className="section-padding border-b border-border">
+      <div className="container-main max-w-3xl">
+        <ScrollReveal>
+          <SectionHeader title="Our Journey" subtitle="Key milestones in our growth, consulting impact, and legacy since establishment." />
+          <div className="relative border-l border-primary/20 pl-6 md:pl-10 ml-4 md:ml-8 space-y-12">
+            {JOURNEY_MILESTONES.map((item, i) => (
+              <ScrollReveal key={i} delay={i * 0.1}>
+                <div className="relative">
+                  {/* Timeline marker */}
+                  <div className="absolute -left-[31px] md:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-primary border-4 border-background z-10" />
+                  
+                  <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
+                    <span className="font-accent font-extrabold text-sm text-primary bg-primary/10 px-3 py-1 rounded-md self-start">
+                      {item.year}
+                    </span>
+                    <h4 className="font-heading font-bold text-base text-foreground">
+                      {item.title}
+                    </h4>
+                  </div>
+                  <p className="text-foreground-secondary text-sm leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </ScrollReveal>
       </div>
     </section>
 

@@ -10,6 +10,7 @@ export const NAV_LINKS = [
   { label: "Knowledge Hub", path: "/knowledge-hub" },
   { label: "Achievements", path: "/achievements" },
   { label: "Events", path: "/events" },
+  { label: "Alumni", path: "/alumni" },
   { label: "Team", path: "/team" },
   { label: "Join Us", path: "/join" },
 ];
@@ -269,4 +270,39 @@ export const JOIN_WHAT_YOU_GET = [
   { icon: "Users", title: "Alumni Network", description: "Connect with alumni at Bain, IIM Calcutta, Grant Thornton, and D.E. Shaw." },
   { icon: "Mic", title: "Speaker Sessions", description: "Access to exclusive industry guest lectures and corporate workshops." },
   { icon: "Star", title: "Leadership Opportunities", description: "Fast-track path to coordinator and leadership roles within a year." },
+];
+
+export const JOURNEY_MILESTONES = [
+  { year: "2018", title: "Establishment", description: "Grandeur was established at Shaheed Sukhdev College of Business Studies as the cell for consulting and strategy, aiming to bridge academic theory with real corporate problem-solving." },
+  { year: "2020", title: "20+ Projects Completed", description: "Successfully delivered strategy, market entry, and growth recommendations to 20+ clients across marketing, research, and advisory domains." },
+  { year: "2022", title: "Global Top 12 - GMCC", description: "Grandeur's team representing SSCBS qualified for the global heats in the Global Microfinance Case Competition hosted by the University of Melbourne, standing as the sole Indian team in the top 12." },
+  { year: "2024", title: "Notable National Podium Wins", description: "Secured first-place finishes at prestigious competitions including IIT Bombay's Jack of All Trades, SRCC's Office Voyage, and IIM Udaipur's management challenges." },
+  { year: "2025", title: "50+ Projects & Flagship Scaling", description: "Completed over 50 live industry projects with brands like Krafton and Mamaearth, and scaled Invicta case competition to 1200+ registrations." }
+];
+
+export const ALUMNI_DIRECTORY = [
+  {
+    batch: "BATCH OF 2025",
+    members: [
+      { name: "Kritika Goel", role: "Core Committee Member", placement: "Pursuing Actuarial Science (IFoA)", linkedin: "https://www.linkedin.com/" },
+      { name: "Aditya Jain", role: "Organizing Committee", placement: "Incoming Strategy Intern", linkedin: "https://www.linkedin.com/" },
+      { name: "Riya Verma", role: "Research Associate", placement: "Management Trainee", linkedin: "https://www.linkedin.com/" }
+    ]
+  },
+  {
+    batch: "BATCH OF 2024",
+    members: [
+      { name: "Ayushi Saini", role: "Former President", placement: "Trainee Analyst at Axxela | Former GT Consulting", linkedin: "https://www.linkedin.com/" },
+      { name: "Siddharth Goel", role: "Director of Outreach", placement: "Investment Banking Analyst at D. E. Shaw", linkedin: "https://www.linkedin.com/" },
+      { name: "Mehak Chhabra", role: "Director of R&D", placement: "Corporate Strategy at Mamaearth", linkedin: "https://www.linkedin.com/" }
+    ]
+  },
+  {
+    batch: "BATCH OF 2023",
+    members: [
+      { name: "Bharat Kukreja", role: "Former President", placement: "Incoming Analyst at Bain & Company | IIM Calcutta MBA", linkedin: "https://www.linkedin.com/in/bharatkukreja/" },
+      { name: "Devansh Mittal", role: "Vice President", placement: "Business Consultant at Grant Thornton", linkedin: "https://www.linkedin.com/" },
+      { name: "Prerna Sethi", role: "Director of Operations", placement: "Associate at Boston Consulting Group (BCG)", linkedin: "https://www.linkedin.com/" }
+    ]
+  }
 ];

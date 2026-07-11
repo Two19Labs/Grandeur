@@ -381,7 +381,7 @@ const Home = () => {
     <section className="section-padding bg-slate-950">
       <div className="container-main">
         <ScrollReveal variant="fadeUp">
-          <SectionHeader title="Our Cornerstone Activities" dark subtitle="Building capability and leadership through hands-on strategy and consulting excellence." />
+          <SectionHeader title="Our Cornerstone Activities" dark subtitle="Empowering student growth and corporate success through Strategic Consulting, Market Research, Financial Advisory, and Growth Marketing." />
         </ScrollReveal>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-6 gap-6"
