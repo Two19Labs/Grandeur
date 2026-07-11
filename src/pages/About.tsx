@@ -13,33 +13,62 @@ const About = () => (
     />
 
     {/* OUR STORY */}
-    <section className="section-padding">
+    <section className="section-padding relative overflow-hidden">
+      {/* Decorative glow */}
+      <div className="absolute top-1/4 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
       <div className="container-main">
         <ScrollReveal>
-          <SectionHeader title="Our Story" />
-          <div className="max-w-3xl mx-auto space-y-5 text-foreground-secondary leading-relaxed text-base">
-            <p>
-              Grandeur is the oldest consulting society in Delhi University. Established at Shaheed
-              Sukhdev College of Business Studies, India's first collegiate business school, founded
-              in 1987 under the University of Delhi. Grandeur was set up with the objective of
-              benefiting the student community through consulting events, live industry projects,
-              seminars, workshops, and self-development case practice sessions.
-            </p>
-            <p>
-              Over the years, the cell has accomplished more than 50 projects in the domains of
-              consulting, research, finance, and marketing. Our members have competed in and won at
-              competitions hosted by IIM Ahmedabad, IIM Bangalore, IIM Kashipur, IIM Udaipur, IIM
-              Raipur, IIT Delhi, IIT Bombay, SRCC, and many more, including international stages
-              like the Global Microfinance Case Competition at the University of Melbourne, where our
-              team was the only Indian representation in the international top 12.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <SectionHeader title="Our Story" align="left" className="mb-0" />
+              <div className="space-y-4 text-foreground-secondary leading-relaxed text-base">
+                <p>
+                  Grandeur is the oldest consulting society in Delhi University. Established at Shaheed
+                  Sukhdev College of Business Studies, India's first collegiate business school, founded
+                  in 1987 under the University of Delhi. Grandeur was set up with the objective of
+                  benefiting the student community through consulting events, live industry projects,
+                  seminars, workshops, and self-development case practice sessions.
+                </p>
+                <p>
+                  Over the years, the cell has accomplished more than 50 projects in the domains of
+                  consulting, research, finance, and marketing. Our members have competed in and won at
+                  competitions hosted by IIM Ahmedabad, IIM Bangalore, IIM Kashipur, IIM Udaipur, IIM
+                  Raipur, IIT Delhi, IIT Bombay, SRCC, and many more, including international stages
+                  like the Global Microfinance Case Competition at the University of Melbourne, where our
+                  team was the only Indian representation in the international top 12.
+                </p>
+              </div>
+            </div>
+            
+            {/* Elegant placeholder image container */}
+            <div className="lg:col-span-5 relative">
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-2xl blur opacity-30" />
+              <div className="relative aspect-[4/3] rounded-2xl border border-border/80 bg-slate-900 overflow-hidden flex flex-col items-center justify-center p-6 shadow-xl">
+                <div 
+                  className="absolute inset-0 opacity-[0.03]" 
+                  style={{ 
+                    backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)", 
+                    backgroundSize: "16px 16px" 
+                  }} 
+                />
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                  <Users className="text-secondary" size={26} />
+                </div>
+                <span className="text-xs font-semibold px-3 py-1 bg-white/5 border border-white/10 text-slate-300 rounded-full mb-2">
+                  Image Placeholder
+                </span>
+                <p className="text-slate-400 text-xs text-center max-w-xs leading-relaxed">
+                  Grandeur Core Team & Founders Legacy Photo
+                </p>
+              </div>
+            </div>
           </div>
         </ScrollReveal>
       </div>
     </section>
 
     {/* MISSION & VISION */}
-    <section className="section-padding bg-background-alt">
+    <section className="section-padding bg-background-alt border-y border-border">
       <div className="container-main">
         <SectionHeader title="Mission & Vision" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -111,7 +140,7 @@ const About = () => (
     </section>
 
     {/* FACULTY ADVISORS */}
-    <section className="section-padding bg-background-alt">
+    <section className="section-padding bg-background-alt border-y border-border">
       <div className="container-main">
         <SectionHeader title="Faculty Advisors" />
         <div className="flex flex-wrap justify-center gap-6 max-w-2xl mx-auto">
@@ -131,44 +160,71 @@ const About = () => (
     </section>
 
     {/* ABOUT SSCBS */}
-    <section className="section-padding">
+    <section className="section-padding relative overflow-hidden">
+      {/* Decorative glow */}
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
       <div className="container-main">
         <ScrollReveal>
-          <SectionHeader title="About SSCBS" />
-          <div className="max-w-3xl mx-auto">
-            <p className="text-foreground-secondary leading-relaxed text-base mb-8">
-              Shaheed Sukhdev College of Business Studies (SSCBS) is one of India's premier
-              undergraduate business schools, established in 1987 as the first collegiate business
-              college in India under the University of Delhi. Ranked #1 in India Today's "Best
-              Colleges in BBA" in 2020 and 2021, accredited Grade A+ by NAAC with a CGPA of 3.46,
-              and ranked 101-105 among colleges in NIRF Ranking 2025, SSCBS is renowned for its
-              vibrant society culture, boasting around 30 active student societies, the highest in
-              Delhi University.
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {[
-                { value: "#1", label: "BBA College", sub: "India Today 2020 & 2021" },
-                { value: "A+", label: "NAAC Grade", sub: "CGPA 3.46" },
-                { value: "101-105", label: "NIRF Rank", sub: "Among All Colleges" },
-                { value: "30+", label: "Student Societies", sub: "Highest in DU" },
-              ].map((stat, i) => {
-                const borderColors = [
-                  "border-t-primary",
-                  "border-t-secondary",
-                  "border-t-accent-blue",
-                  "border-t-accent-red"
-                ];
-                const borderColor = borderColors[i % borderColors.length];
-                return (
-                  <ScrollReveal key={i} delay={i * 0.08}>
-                    <div className={`card-base p-5 text-center border-t-4 ${borderColor} group hover:shadow-md transition-all duration-300`}>
-                      <div className="font-heading text-2xl font-bold text-primary mb-1 transition-transform duration-300 group-hover:scale-110 inline-block">{stat.value}</div>
-                      <div className="font-semibold text-sm text-foreground mb-0.5">{stat.label}</div>
-                      <div className="text-foreground-secondary text-xs">{stat.sub}</div>
-                    </div>
-                  </ScrollReveal>
-                );
-              })}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Elegant placeholder image container */}
+            <div className="lg:col-span-5 order-last lg:order-first relative">
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-accent-blue/30 to-accent-red/30 rounded-2xl blur opacity-30" />
+              <div className="relative aspect-[4/3] rounded-2xl border border-border/80 bg-slate-900 overflow-hidden flex flex-col items-center justify-center p-6 shadow-xl">
+                <div 
+                  className="absolute inset-0 opacity-[0.03]" 
+                  style={{ 
+                    backgroundImage: "radial-gradient(#ffffff 1px, transparent 1px)", 
+                    backgroundSize: "16px 16px" 
+                  }} 
+                />
+                <div className="w-14 h-14 rounded-full bg-accent-blue/10 flex items-center justify-center mb-4">
+                  <Building className="text-accent-blue" size={26} />
+                </div>
+                <span className="text-xs font-semibold px-3 py-1 bg-white/5 border border-white/10 text-slate-300 rounded-full mb-2">
+                  Image Placeholder
+                </span>
+                <p className="text-slate-400 text-xs text-center max-w-xs leading-relaxed">
+                  SSCBS Campus, PSP Area IV, Rohini
+                </p>
+              </div>
+            </div>
+
+            <div className="lg:col-span-7 space-y-6">
+              <SectionHeader title="About SSCBS" align="left" className="mb-0" />
+              <p className="text-foreground-secondary leading-relaxed text-base">
+                Shaheed Sukhdev College of Business Studies (SSCBS) is one of India's premier
+                undergraduate business schools, established in 1987 as the first collegiate business
+                college in India under the University of Delhi. Ranked #1 in India Today's "Best
+                Colleges in BBA" in 2020 and 2021, accredited Grade A+ by NAAC with a CGPA of 3.46,
+                and ranked 101-105 among colleges in NIRF Ranking 2025, SSCBS is renowned for its
+                vibrant society culture, boasting around 30 active student societies, the highest in
+                Delhi University.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                {[
+                  { value: "#1", label: "BBA College", sub: "India Today 2020 & 2021" },
+                  { value: "A+", label: "NAAC Grade", sub: "CGPA 3.46" },
+                  { value: "101-105", label: "NIRF Rank", sub: "Among All Colleges" },
+                  { value: "30+", label: "Student Societies", sub: "Highest in DU" },
+                ].map((stat, i) => {
+                  const borderColors = [
+                    "border-t-primary",
+                    "border-t-secondary",
+                    "border-t-accent-blue",
+                    "border-t-accent-red"
+                  ];
+                  const borderColor = borderColors[i % borderColors.length];
+                  return (
+                    <ScrollReveal key={i} delay={i * 0.08}>
+                      <div className={`card-base p-5 text-center border-t-4 ${borderColor} group hover:shadow-md transition-all duration-300 bg-white/80`}>
+                        <div className="font-heading text-2xl font-bold text-primary mb-1 transition-transform duration-300 group-hover:scale-110 inline-block">{stat.value}</div>
+                        <div className="font-semibold text-sm text-foreground mb-0.5">{stat.label}</div>
+                        <div className="text-foreground-secondary text-xs">{stat.sub}</div>
+                      </div>
+                    </ScrollReveal>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </ScrollReveal>

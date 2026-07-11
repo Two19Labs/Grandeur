@@ -171,33 +171,7 @@ const KnowledgeHub = () => (
       </div>
     </section>
 
-    {/* Framework & Consulting Prep — kept from original */}
-    <section className="section-padding bg-background-alt border-t border-border">
-      <div className="container-main">
-        <SectionHeader title="Case Frameworks and Consulting Prep" subtitle="Structured tools to sharpen your case-solving skills." />
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {[
-            { icon: <Layers size={22} />, title: "Market Entry Framework", desc: "A structured approach to evaluating new market opportunities end-to-end.", tag: "Framework" },
-            { icon: <BarChart2 size={22} />, title: "Profitability Analysis", desc: "Diagnosing revenue and cost levers for turnaround and growth cases.", tag: "Framework" },
-            { icon: <BookOpen size={22} />, title: "Case Interview Primer", desc: "From MECE thinking to structured communication, a complete beginner guide.", tag: "Guide" },
-          ].map((item, i) => (
-            <ScrollReveal key={i} delay={i * 0.08}>
-              <div className="card-base p-6 h-full flex flex-col group hover:border-primary/30 transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
-                  {item.icon}
-                </div>
-                <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border self-start mb-3 ${TAG_COLORS[item.tag]}`}>
-                  {item.tag}
-                </span>
-                <h3 className="font-heading font-bold text-base mb-2">{item.title}</h3>
-                <p className="text-foreground-secondary text-sm leading-relaxed flex-1">{item.desc}</p>
-                <p className="text-xs text-muted-foreground mt-4 italic">Coming soon</p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </div>
-    </section>
+
 
     {/* CTA */}
     <section className="section-padding border-t border-border text-center">

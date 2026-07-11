@@ -29,7 +29,9 @@ const Projects = () => (
                 <p className="text-xs text-foreground-secondary mb-1">{p.info}</p>
                 <div className="flex gap-2 my-3">
                   <span className="text-xs font-semibold px-2.5 py-1 bg-primary/10 text-primary rounded-full group-hover:shadow-[0_0_12px_rgba(30,58,138,0.2)] transition-shadow duration-300">{p.role}</span>
-                  <span className="text-xs font-semibold px-2.5 py-1 bg-muted text-foreground-secondary rounded-full">{p.duration}</span>
+                  {p.duration && p.duration === "Ongoing" && (
+                    <span className="text-xs font-semibold px-2.5 py-1 bg-muted text-foreground-secondary rounded-full">{p.duration}</span>
+                  )}
                 </div>
                 <p className="text-foreground-secondary text-sm leading-relaxed flex-1">{p.description}</p>
               </div>

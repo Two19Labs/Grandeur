@@ -22,9 +22,77 @@ const typeColor: Record<string, string> = {
 const Events = () => (
   <div>
     <PageHero
-      title="Events Archive"
-      subtitle="A record of every competition, initiative, and milestone in Grandeur's journey, from SSCBS corridors to global stages."
+      title="Events & Initiatives"
+      subtitle="A record of every competition, initiative, and milestone in Grandeur's journey, from flagship national stages to intra-college platforms."
     />
+
+    {/* FLAGSHIP EVENTS */}
+    <section className="section-padding relative overflow-hidden bg-background">
+      <div className="container-main">
+        <ScrollReveal variant="fadeUp">
+          <SectionHeader 
+            title="Our Flagship Events" 
+            subtitle="The core annual events hosted by Grandeur that define our presence and engage the national student community." 
+          />
+        </ScrollReveal>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              title: "INVICTA",
+              subtitle: "The Ultimate Case Study Competition",
+              desc: "Our national case study competition attracting 1200+ registrations across top colleges in India. Teams tackle complex corporate conundrums judged by industry panels.",
+              tag: "National",
+              stats: "1200+ Registrations",
+              link: "https://unstop.com/competitions/invicta-2026-shaheed-sukhdev-college-of-business-studies-sscbs-du-delhi-1642243",
+              accent: "border-t-secondary"
+            },
+            {
+              title: "RANNEETI",
+              subtitle: "The Introductory Case Competition",
+              desc: "An intra-college challenge designed for incoming first-years to introduce them to structured problem-solving, MECE framework, and consulting presentations.",
+              tag: "Intra-College",
+              stats: "300+ Freshers",
+              link: null,
+              accent: "border-t-primary"
+            },
+            {
+              title: "ECHELON",
+              subtitle: "The Simulation Challenge",
+              desc: "A high-stakes strategy and simulation challenge testing students on financial analysis, market growth, and strategic decisions in a dynamic, live business game.",
+              tag: "National Simulation",
+              stats: "SSCBS Campus Finale",
+              link: "https://unstop.com/competitions/echelon-the-simulation-challenge-shaheed-sukhdev-college-of-business-studies-sscbs-du-delhi-1670580",
+              accent: "border-t-accent-blue"
+            }
+          ].map((ev, i) => (
+            <ScrollReveal key={i} delay={i * 0.1}>
+              <div className={`card-base p-8 h-full flex flex-col border-t-4 ${ev.accent} group hover:shadow-lg transition-all duration-300 bg-white/80`}>
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-xs font-semibold px-2.5 py-1 bg-primary/10 text-primary rounded-full">{ev.tag}</span>
+                  <span className="text-xs font-semibold text-secondary">{ev.stats}</span>
+                </div>
+                <h3 className="font-heading font-extrabold text-xl mb-1 group-hover:text-primary transition-colors">{ev.title}</h3>
+                <p className="text-sm font-semibold text-foreground-secondary mb-4 leading-snug">{ev.subtitle}</p>
+                <p className="text-foreground-secondary text-sm leading-relaxed flex-1 mb-6">{ev.desc}</p>
+                {ev.link ? (
+                  <a
+                    href={ev.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:opacity-80 transition-opacity"
+                  >
+                    View on Unstop <Award size={14} />
+                  </a>
+                ) : (
+                  <span className="text-xs font-semibold text-muted-foreground italic">Annual Freshers Event</span>
+                )}
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
 
     <EchelonCountdown />
 

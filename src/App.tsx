@@ -11,7 +11,6 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
-import Invicta from "./pages/Invicta";
 import Achievements from "./pages/Achievements";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
@@ -48,7 +47,6 @@ const AppRoutes = () => {
         <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
         <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
         <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
-        <Route path="/invicta" element={<PageWrapper><Invicta /></PageWrapper>} />
         <Route path="/achievements" element={<PageWrapper><Achievements /></PageWrapper>} />
         <Route path="/team" element={<PageWrapper><Team /></PageWrapper>} />
         <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />

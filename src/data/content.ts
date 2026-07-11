@@ -8,11 +8,10 @@ export const NAV_LINKS = [
   { label: "About", path: "/about" },
   { label: "Projects", path: "/projects" },
   { label: "Knowledge Hub", path: "/knowledge-hub" },
-  { label: "Invicta", path: "/invicta" },
   { label: "Achievements", path: "/achievements" },
   { label: "Events", path: "/events" },
-  { label: "Join Us", path: "/join" },
   { label: "Team", path: "/team" },
+  { label: "Join Us", path: "/join" },
 ];
 
 export const STATS = [
@@ -40,28 +39,28 @@ export const PROJECTS = [
   {
     company: "KRG Consultancy",
     info: "Strategic consulting and business advisory organization providing globally benchmarked solutions",
-    duration: "3 months",
+    duration: "",
     role: "Business Analyst",
     description: "Analysis of the skill gap in India and building strategies for training and development to overcome the gap",
   },
   {
     company: "Skilled Sapiens",
     info: "A community that mentors and guides college students in their career and professional growth",
-    duration: "2 months",
+    duration: "",
     role: "Growth and Strategy Intern",
     description: "Elevating the company's sales performance by refining and optimizing the overall customer experience",
   },
   {
     company: "Upsurge.club",
     info: "An online platform focused on financial education and literacy",
-    duration: "3 months",
+    duration: "",
     role: "Market Research",
     description: "Developing the Upsurge Student Club Model along with identifying and analysing key multinational companies",
   },
   {
     company: "Atmoz",
     info: "An HR tech company owned by Contrarian Ventures LLP servicing over 200 corporates across India",
-    duration: "2 months",
+    duration: "",
     role: "Consulting Intern",
     description: "Leading exhaustive research endeavors in the HR tech industry, diving deep to extract valuable insights",
   },

@@ -168,8 +168,20 @@ const Team = () => {
         </div>
       </section>
 
-      {/* COORDINATORS */}
+      {/* VICE PRESIDENT */}
       <section className="section-padding">
+        <div className="container-main">
+          <SectionHeader title="Vice President" />
+          <div className="max-w-xs mx-auto">
+            <ScrollReveal>
+              <TeamCard member={TEAM_DATA.vicePresident} size="lg" onImageClick={openLightbox} />
+            </ScrollReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* COORDINATORS */}
+      <section className="section-padding bg-background-alt border-y border-border">
         <div className="container-main">
           <SectionHeader title="Coordinators" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-lg mx-auto">
@@ -183,7 +195,7 @@ const Team = () => {
       </section>
 
       {/* ADVISORY */}
-      <section className="section-padding bg-background-alt border-y border-border">
+      <section className="section-padding">
         <div className="container-main">
           <SectionHeader title="Advisory Committee" />
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
@@ -197,7 +209,7 @@ const Team = () => {
       </section>
 
       {/* CORE */}
-      <section className="section-padding">
+      <section className="section-padding bg-background-alt border-y border-border">
         <div className="container-main">
           <SectionHeader title="Core Committee" />
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
@@ -211,7 +223,7 @@ const Team = () => {
       </section>
 
       {/* ORGANIZING */}
-      <section className="section-padding bg-background-alt border-y border-border">
+      <section className="section-padding">
         <div className="container-main">
           <SectionHeader title="Organizing Committee" />
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-4xl mx-auto">

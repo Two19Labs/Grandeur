@@ -18,6 +18,12 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { STATS, CORNERSTONE_ACTIVITIES, COLLABORATORS, PROJECTS, PUBLICATIONS } from "@/data/content";
 import { EchelonCountdown } from "@/components/EchelonBanner";
 
+import imgProjects from "@/assets/cornerstone-projects.png";
+import imgLectures from "@/assets/cornerstone-lectures.png";
+import imgCases from "@/assets/cornerstone-cases.png";
+import imgResearch from "@/assets/cornerstone-research.png";
+import imgEvents from "@/assets/cornerstone-events.png";
+
 const COLLAB_LOGOS: Record<string, string> = {
   "KRG Consultancy": collabKrg,
   "Skilled Sapiens": collabSkilledSapiens,
@@ -166,118 +172,17 @@ const ParthCountdown = ({ deadline }: { deadline: Date }) => {
   );
 };
 
-
-
 const Home = () => {
-  const invictaLive = isInvictaLive();
   const echelonLive = isEchelonLive();
-  const countdown = useCountdown(INVICTA_DEADLINE);
   const { scrollY } = useScroll();
   const heroBgY = useTransform(scrollY, [0, 600], [0, 120]);
 
+  const filteredActivities = CORNERSTONE_ACTIVITIES.filter(a => a.title !== "Invicta");
+  const activityImages = [imgProjects, imgLectures, imgCases, imgResearch, imgEvents];
+
   return (
   <div>
-    {/* INVICTA 2026 LIVE BANNER — parallax hero */}
-    {invictaLive && (
-      <motion.section
-        className="pt-36 pb-20 md:pt-44 md:pb-28 relative overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <motion.img
-          src={heroBg}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover blur-[3px] scale-105"
-          style={{ y: heroBgY }}
-        />
-        <div className="absolute inset-0 bg-black/45" />
-        <div className="container-main relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-center max-w-4xl mx-auto"
-          >
-            <img src={grandeurLogoHero} alt="Grandeur" className="h-28 md:h-40 w-auto mx-auto mb-8 drop-shadow-2xl" />
-            <motion.span
-              className="inline-block px-4 py-1.5 rounded-full bg-secondary/30 text-secondary font-accent font-semibold text-sm uppercase tracking-widest mb-6 animate-pulse"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              🔴 Live Now
-            </motion.span>
-            <motion.h1
-              className="font-heading text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.7 }}
-            >
-              INVICTA 2026
-            </motion.h1>
-            <motion.p
-              className="text-xl md:text-2xl text-white/70 font-medium mb-3"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-            >
-              The Ultimate National Case Study Competition
-            </motion.p>
-            <motion.p
-              className="text-white/60 text-base md:text-lg max-w-2xl mx-auto mb-4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-            >
-              Presented by Grandeur - The Consulting & Knowledge Cell of SSCBS
-            </motion.p>
-            <motion.div
-              className="flex justify-center gap-6 mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65 }}
-            >
-              {[
-                { value: countdown.days, label: "Days" },
-                { value: countdown.hours, label: "Hours" },
-                { value: countdown.minutes, label: "Minutes" },
-                { value: countdown.seconds, label: "Seconds" },
-              ].map((unit) => (
-                <div key={unit.label} className="flex flex-col items-center">
-                  <span className="font-accent text-2xl md:text-3xl font-bold text-white">{String(unit.value).padStart(2, "0")}</span>
-                  <span className="text-xs text-white/60 mt-1.5 font-medium uppercase tracking-wider">{unit.label}</span>
-                </div>
-              ))}
-            </motion.div>
-            <motion.p
-              className="text-sm text-white/60 mb-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-            >
-              Registrations close <strong className="text-white">11th March 2026, 6:00 PM</strong>
-            </motion.p>
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.75 }}
-            >
-              <a href="https://unstop.com/competitions/invicta-2026-shaheed-sukhdev-college-of-business-studies-sscbs-du-delhi-1642243" target="_blank" rel="noopener noreferrer" className="px-8 py-3.5 bg-secondary text-secondary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-sm">
-                Register Now on Unstop
-              </a>
-              <Link to="/invicta" className="px-8 py-3.5 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors text-sm">
-                Learn More
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </motion.section>
-    )}
-
-    {/* DEFAULT HERO (when Invicta is not live) */}
-    {!invictaLive && (
+    {/* DEFAULT HERO */}
     <section className="pt-36 pb-20 md:pt-44 md:pb-28 relative overflow-hidden">
       <motion.img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover blur-[3px] scale-105" style={{ y: heroBgY }} />
       <div className="absolute inset-0 bg-black/45" />
@@ -289,11 +194,9 @@ const Home = () => {
         </motion.div>
       </div>
     </section>
-    )}
 
     {/* PARTH EXECUTION BANNER — disappears at deadline */}
     {isParthLive() && <section className="relative overflow-hidden py-16 md:py-24" style={{ background: "linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 40%, #0d1a3a 100%)" }}>
-      {/* Animated background blobs */}
       <motion.div
         className="absolute top-0 left-1/4 w-96 h-96 rounded-full pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(139,0,255,0.25) 0%, transparent 70%)", filter: "blur(60px)" }}
@@ -335,14 +238,13 @@ const Home = () => {
           <p className="text-white/50 text-lg mb-12 font-medium">Countdown to zero.</p>
         </ScrollReveal>
 
-        {/* Big Timer */}
         <ScrollReveal variant="scaleUp" delay={0.3}>
           <ParthCountdown deadline={PARTH_DEADLINE} />
         </ScrollReveal>
       </div>
     </section>}
 
-    {/* WHO WE ARE — fade left/right split */}
+    {/* WHO WE ARE */}
     {echelonLive && (
       <section className="section-padding bg-background-alt">
         <div className="container-main">
@@ -475,87 +377,64 @@ const Home = () => {
       </div>
     </section>
 
-    <EchelonCountdown />
-
-    {/* INVICTA TEASER — scale + glow */}
-    <section className="section-padding">
-      <div className="container-main">
-        <ScrollReveal variant="scaleUp">
-          <motion.div
-            className="gradient-invicta rounded-2xl p-8 md:p-14 border border-border"
-            whileHover={{ scale: 1.01 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="max-w-3xl">
-              <ScrollReveal variant="fadeLeft" delay={0.1}>
-                <span className="text-secondary font-accent font-semibold text-sm uppercase tracking-widest">Flagship Event</span>
-              </ScrollReveal>
-              <ScrollReveal variant="fadeLeft" delay={0.2}>
-                <h2 className="font-heading text-3xl md:text-4xl font-bold mt-3 mb-4">INVICTA - The Ultimate Case Study Competition</h2>
-              </ScrollReveal>
-              <ScrollReveal variant="fadeLeft" delay={0.3}>
-                <p className="text-foreground-secondary text-lg mb-6">Our flagship pan-India case competition challenging the brightest minds to solve real corporate conundrums.</p>
-              </ScrollReveal>
-              <div className="flex flex-wrap gap-6 mb-8">
-                {[{ v: "1200+", l: "Registrations" }, { v: "₹20K+", l: "Cash Prizes" }, { v: "₹1L+", l: "Overall Prizes" }].map((s, i) => (
-                  <ScrollReveal key={i} delay={0.35 + i * 0.1} variant="scaleUp">
-                    <div className="text-center">
-                      <div className="font-accent text-2xl font-bold text-primary">{s.v}</div>
-                      <div className="text-sm text-foreground-secondary">{s.l}</div>
-                    </div>
-                  </ScrollReveal>
-                ))}
-              </div>
-              <Link to="/invicta" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
-                Learn More About Invicta →
-              </Link>
-            </div>
-          </motion.div>
-        </ScrollReveal>
-      </div>
-    </section>
-
-    {/* LIVE PROJECTS — alternating left/right */}
-    <section className="section-padding bg-background-alt">
+    {/* CORNERSTONE ACTIVITIES — moved higher and styled as asymmetrical collage */}
+    <section className="section-padding bg-slate-950">
       <div className="container-main">
         <ScrollReveal variant="fadeUp">
-          <SectionHeader title="Our Live Projects" subtitle="Real problems. Real companies. Real impact." />
+          <SectionHeader title="Our Cornerstone Activities" dark subtitle="Building capability and leadership through hands-on strategy and consulting excellence." />
         </ScrollReveal>
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-6 gap-6"
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-60px" }}
         >
-          {PROJECTS.slice(0, 3).map((p, i) => (
-            <motion.div key={i} variants={cardVariant}>
+          {filteredActivities.map((a, i) => {
+            const Icon = ICONS[a.icon] || Briefcase;
+            const img = activityImages[i];
+            const gridSpans = [
+              "md:col-span-3", // Projects
+              "md:col-span-3", // Lectures
+              "md:col-span-2", // Cases
+              "md:col-span-2", // Research
+              "md:col-span-2"  // Events (Ranneeti)
+            ];
+            return (
               <motion.div
-                className="card-base p-6 h-full flex flex-col"
-                whileHover={{ y: -5, borderColor: "hsl(var(--primary) / 0.4)" }}
-                transition={{ duration: 0.2 }}
+                key={i}
+                className={`relative overflow-hidden rounded-2xl h-80 group ${gridSpans[i]}`}
+                variants={cardVariant}
               >
-                <div className="w-12 h-12 rounded-lg bg-accent-blue/10 flex items-center justify-center mb-4">
-                  <Briefcase className="text-accent-blue" size={22} />
+                {/* Background Image */}
+                <img 
+                  src={img} 
+                  alt={a.title} 
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                />
+                {/* Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/20 group-hover:via-slate-950/80 transition-all duration-300" />
+                
+                {/* Card Content */}
+                <div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
+                  <div className="w-10 h-10 rounded-lg bg-secondary/90 flex items-center justify-center mb-3">
+                    <Icon className="text-secondary-foreground" size={20} />
+                  </div>
+                  <h3 className="font-heading font-bold text-lg text-white mb-1 group-hover:text-secondary transition-colors">
+                    {a.title}
+                  </h3>
+                  <p className="text-slate-300 text-xs leading-relaxed">
+                    {a.description}
+                  </p>
                 </div>
-                <h3 className="font-heading font-bold mb-1">{p.company}</h3>
-                <span className="text-xs text-primary font-semibold mb-2">{p.role} · {p.duration}</span>
-                <p className="text-foreground-secondary text-sm leading-relaxed flex-1">{p.description}</p>
               </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-        <motion.div
-          className="text-center mt-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-        >
-          <Link to="/projects" className="text-primary font-semibold hover:underline">View All Projects →</Link>
+            );
+          })}
         </motion.div>
       </div>
     </section>
+
+    <EchelonCountdown />
 
     {/* PUBLICATIONS — flip-up cards */}
     <section className="section-padding">
@@ -603,41 +482,25 @@ const Home = () => {
       </div>
     </section>
 
-    {/* CORNERSTONE ACTIVITIES — stagger with hover lift */}
-    <section className="section-padding section-dark-alt">
+    {/* CTA SECTION — moved higher, keep just Partner With Us */}
+    <section className="section-padding bg-primary text-center">
       <div className="container-main">
-        <ScrollReveal variant="fadeUp">
-          <SectionHeader title="Our Cornerstone Activities" dark />
+        <ScrollReveal variant="fadeUp" duration={0.7}>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">Ready to solve real business problems?</h2>
+          <p className="text-primary-foreground/80 text-lg mb-8">Collaborate with Grandeur for strategy, finance, and marketing solutions.</p>
+          <motion.div
+            className="flex justify-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+              <Link to="/contact" className="px-8 py-3.5 bg-secondary text-secondary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity">
+                Partner With Us
+              </Link>
+            </motion.div>
+          </motion.div>
         </ScrollReveal>
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
-        >
-          {CORNERSTONE_ACTIVITIES.map((a, i) => {
-            const Icon = ICONS[a.icon] || Briefcase;
-            return (
-              <motion.div
-                key={i}
-                variants={{ hidden: { opacity: 0, x: i % 2 === 0 ? -30 : 30, y: 20 }, visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 } } }}
-              >
-                <motion.div
-                  className="p-6 rounded-xl bg-white/5 border border-white/10 h-full"
-                  whileHover={{ backgroundColor: "rgba(255,255,255,0.10)", y: -4 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mb-4">
-                    <Icon className="text-secondary" size={22} />
-                  </div>
-                  <h3 className="font-heading font-bold mb-2 text-white">{a.title}</h3>
-                  <p className="text-white/60 text-sm leading-relaxed">{a.description}</p>
-                </motion.div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
       </div>
     </section>
 
@@ -660,65 +523,6 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </div>
-    </section>
-
-    {/* TESTIMONIAL — dramatic fade */}
-    <section className="section-padding section-dark">
-      <div className="container-main text-center">
-        <ScrollReveal variant="scaleUp" duration={0.8}>
-          <motion.blockquote
-            className="max-w-3xl mx-auto"
-            whileInView={{ opacity: 1 }}
-          >
-            <motion.p
-              className="text-2xl md:text-3xl font-heading font-bold text-white italic leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-            >
-              "We solely believe in bringing out the best capabilities that a student possesses."
-            </motion.p>
-            <motion.cite
-              className="block mt-4 text-white/60 font-medium not-italic"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-            >
-              - Grandeur, SSCBS
-            </motion.cite>
-          </motion.blockquote>
-        </ScrollReveal>
-      </div>
-    </section>
-
-    {/* CTA — slide up */}
-    <section className="section-padding bg-primary">
-      <div className="container-main text-center">
-        <ScrollReveal variant="fadeUp" duration={0.7}>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-primary-foreground mb-4">Ready to solve real business problems?</h2>
-          <p className="text-primary-foreground/80 text-lg mb-8">Join Grandeur or collaborate with us.</p>
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {[
-              { to: "/contact", label: "Join Us", style: "px-8 py-3.5 bg-secondary text-secondary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity" },
-              { to: "/contact", label: "Partner With Us", style: "px-8 py-3.5 border-2 border-primary-foreground text-primary-foreground font-semibold rounded-lg hover:bg-primary-foreground/10 transition-colors" },
-            ].map((btn, i) => (
-              <motion.div key={i} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.45, delay: i * 0.12 } } }}>
-                <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-                  <Link to={btn.to} className={btn.style}>{btn.label}</Link>
-                </motion.div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </ScrollReveal>
       </div>
     </section>
   </div>
