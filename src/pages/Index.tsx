@@ -378,10 +378,10 @@ const Home = () => {
     </section>
 
     {/* CORNERSTONE ACTIVITIES — moved higher and styled as asymmetrical collage */}
-    <section className="section-padding bg-slate-950">
+    <section className="section-padding bg-background-alt border-y border-border">
       <div className="container-main">
         <ScrollReveal variant="fadeUp">
-          <SectionHeader title="Our Cornerstone Activities" dark subtitle="Empowering student growth and corporate success through Strategic Consulting, Market Research, Financial Advisory, and Growth Marketing." />
+          <SectionHeader title="Our Cornerstone Activities" subtitle="Empowering student growth and corporate success through Strategic Consulting, Market Research, Financial Advisory, and Growth Marketing." />
         </ScrollReveal>
         <motion.div
           className="grid grid-cols-1 md:grid-cols-6 gap-6"

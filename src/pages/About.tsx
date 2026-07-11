@@ -104,26 +104,26 @@ const About = () => (
     </section>
 
     {/* ANNUAL REPORTS */}
-    <section className="section-padding bg-slate-950 text-white border-y border-white/5">
+    <section className="section-padding bg-background border-y border-border">
       <div className="container-main">
         <ScrollReveal>
-          <SectionHeader title="Our Annual Reports" dark subtitle="Review our academic chapter performance, consulting case summaries, and operational milestones." />
+          <SectionHeader title="Our Annual Reports" subtitle="Review our academic chapter performance, consulting case summaries, and operational milestones." />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
             {[
               { year: "2024 - 2025", pages: "18 pages", size: "2.4 MB" },
               { year: "2023 - 2024", pages: "15 pages", size: "1.9 MB" }
             ].map((report, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="p-6 rounded-xl bg-white/5 border border-white/10 flex items-start gap-4 hover:bg-white/10 transition-colors group">
-                  <div className="w-12 h-12 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary flex-shrink-0 group-hover:scale-105 transition-transform">
+                <div className="p-6 rounded-xl bg-white border border-border flex items-start gap-4 hover:shadow-md transition-shadow group">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary flex-shrink-0 group-hover:scale-105 transition-transform">
                     <FileText size={22} />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-heading font-extrabold text-sm text-white mb-0.5">Annual Report {report.year}</h4>
-                    <p className="text-xs text-slate-400 mb-3">{report.pages} · PDF · {report.size}</p>
+                    <h4 className="font-heading font-extrabold text-sm text-foreground mb-0.5">Annual Report {report.year}</h4>
+                    <p className="text-xs text-foreground-secondary mb-3">{report.pages} · PDF · {report.size}</p>
                     <a 
                       href="#" 
-                      className="inline-flex items-center gap-1.5 text-xs text-secondary font-bold hover:underline"
+                      className="inline-flex items-center gap-1.5 text-xs text-primary font-extrabold hover:underline"
                     >
                       <Download size={12} /> Download Report
                     </a>

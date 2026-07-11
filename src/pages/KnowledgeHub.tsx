@@ -1,7 +1,7 @@
 import ScrollReveal from "@/components/ScrollReveal";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
-import { FileText, Download, BookOpen, BarChart2, Layers, ExternalLink } from "lucide-react";
+import { FileText } from "lucide-react";
 
 // ─── ADD NEW RESOURCES HERE ───────────────────────────────────────────────────
 // Categories: "Industry Report" | "Company Report" | "Sector Report" | "Casebook" | "Framework" | "Guide"
@@ -93,42 +93,28 @@ const RESOURCES = [
 ];
 // ─────────────────────────────────────────────────────────────────────────────
 
-const TAG_COLORS: Record<string, string> = {
-  "Industry Report": "bg-blue-500/10 text-blue-600 border-blue-200",
-  "Company Report":  "bg-orange-500/10 text-orange-600 border-orange-200",
-  "Sector Report":   "bg-purple-500/10 text-purple-600 border-purple-200",
-  "Casebook":        "bg-green-500/10 text-green-600 border-green-200",
-  "Framework":       "bg-yellow-500/10 text-yellow-600 border-yellow-200",
-  "Guide":           "bg-secondary/10 text-secondary border-secondary/20",
-};
-
 const ResourceCard = ({ r }: { r: typeof RESOURCES[0] }) => (
-  <div className="card-base p-6 h-full flex flex-col group hover:border-primary/30 transition-all duration-300">
-    <div className="flex items-start justify-between mb-4">
-      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
-        <FileText className="text-primary transition-transform duration-300 group-hover:scale-105" size={18} />
-      </div>
-      <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border transition-all duration-300 group-hover:shadow-sm ${TAG_COLORS[r.tag] || "bg-muted text-foreground-secondary border-border"}`}>
+  <div className="card-base p-6 h-full flex flex-col group hover:border-primary/20 transition-all duration-300 bg-white">
+    <div className="flex items-center justify-between mb-4">
+      <span className="text-[10px] uppercase font-bold tracking-widest text-primary bg-primary/10 px-2.5 py-1 rounded-full">
         {r.tag}
       </span>
     </div>
-    <h3 className="font-heading font-bold text-base mb-2 transition-colors duration-300 group-hover:text-primary">{r.title}</h3>
-    <p className="text-foreground-secondary text-sm leading-relaxed flex-1">{r.description}</p>
-    <div className="mt-5 flex gap-4">
+    <h3 className="font-heading font-extrabold text-base mb-2 text-foreground group-hover:text-primary transition-colors duration-300">
+      {r.title}
+    </h3>
+    <p className="text-foreground-secondary text-sm leading-relaxed flex-1">
+      {r.description}
+    </p>
+    <div className="mt-5 pt-4 border-t border-border flex items-center justify-between">
+      <span className="text-xs text-slate-400 font-semibold">PDF Document</span>
       <a
         href={r.file}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center gap-1.5 text-sm text-foreground-secondary hover:text-primary transition-colors font-medium group/view"
+        className="inline-flex items-center gap-1 text-xs text-primary font-extrabold hover:underline"
       >
-        <ExternalLink size={14} className="transition-transform duration-300 group-hover/view:scale-110 group-hover/view:-translate-y-0.5 group-hover/view:translate-x-0.5" /> View
-      </a>
-      <a
-        href={r.file}
-        download
-        className="flex items-center gap-1.5 text-sm text-primary font-semibold hover:opacity-80 transition-opacity group/dl"
-      >
-        <Download size={14} className="transition-transform duration-300 group-hover/dl:translate-y-0.5" /> Download
+        Read Here →
       </a>
     </div>
   </div>

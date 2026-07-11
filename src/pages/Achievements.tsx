@@ -73,40 +73,41 @@ const AchievementsPage = () => {
       </section>
 
       {/* FEATURED WINS CAROUSEL */}
-      <section className="section-padding relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_rgba(30,58,138,0.15),_transparent_40%)]" />
+      <section className="section-padding bg-background border-b border-border">
         <div className="container-main">
-          <SectionHeader title="Notable Placements & Wins" dark subtitle="Swipe through some of our flagship competition victories and podium finishes." />
+          <SectionHeader title="Notable Placements & Wins" subtitle="Swipe through some of our flagship competition victories and podium finishes." />
           
-          <div className="relative max-w-4xl mx-auto h-[450px] overflow-hidden rounded-2xl shadow-2xl group border border-white/10 bg-slate-900">
+          <div className="relative max-w-4xl mx-auto min-h-[380px] overflow-hidden rounded-2xl border border-border bg-white shadow-lg flex flex-col md:flex-row">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeIndex}
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -30 }}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
-                className="absolute inset-0 w-full h-full"
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
+                className="absolute inset-0 w-full h-full flex flex-col md:flex-row"
               >
-                {/* Background Image */}
-                <img 
-                  src={CAROUSEL_ITEMS[activeIndex].image} 
-                  alt={CAROUSEL_ITEMS[activeIndex].title} 
-                  className="w-full h-full object-cover"
-                />
-                {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/20" />
+                {/* Image side */}
+                <div className="w-full md:w-1/2 h-[200px] md:h-full relative overflow-hidden bg-slate-100 flex-shrink-0">
+                  <img 
+                    src={CAROUSEL_ITEMS[activeIndex].image} 
+                    alt={CAROUSEL_ITEMS[activeIndex].title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 
-                {/* Content overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 z-10 flex flex-col justify-end h-full">
-                  <span className="text-secondary font-accent font-semibold text-xs uppercase tracking-widest mb-2">Flagship Win</span>
-                  <h3 className="font-heading font-extrabold text-2xl md:text-4xl text-white mb-2">
+                {/* Content side */}
+                <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center bg-white">
+                  <span className="text-primary font-accent font-semibold text-[10px] uppercase tracking-widest mb-2 block">
+                    Flagship Win
+                  </span>
+                  <h3 className="font-heading font-extrabold text-xl md:text-2xl text-foreground mb-1">
                     {CAROUSEL_ITEMS[activeIndex].title}
                   </h3>
-                  <p className="text-secondary font-semibold text-sm md:text-base mb-4">
+                  <p className="text-secondary font-bold text-sm mb-4">
                     {CAROUSEL_ITEMS[activeIndex].institution}
                   </p>
-                  <p className="text-slate-300 text-xs md:text-sm max-w-2xl leading-relaxed">
+                  <p className="text-foreground-secondary text-sm leading-relaxed">
                     {CAROUSEL_ITEMS[activeIndex].description}
                   </p>
                 </div>
@@ -116,24 +117,24 @@ const AchievementsPage = () => {
             {/* Navigation Arrows */}
             <button 
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-950/80 border border-white/10 text-white flex items-center justify-center hover:bg-slate-900 transition-colors z-20"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 border border-border text-foreground flex items-center justify-center hover:bg-slate-50 shadow-md transition-colors z-20"
             >
               ←
             </button>
             <button 
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-slate-950/80 border border-white/10 text-white flex items-center justify-center hover:bg-slate-900 transition-colors z-20"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/90 border border-border text-foreground flex items-center justify-center hover:bg-slate-50 shadow-md transition-colors z-20"
             >
               →
             </button>
             
             {/* Indicators */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+            <div className="absolute bottom-4 right-8 flex gap-1.5 z-20">
               {CAROUSEL_ITEMS.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveIndex(i)}
-                  className={`w-2 h-2 rounded-full transition-colors ${activeIndex === i ? "bg-secondary" : "bg-white/40"}`}
+                  className={`w-2 h-2 rounded-full transition-colors ${activeIndex === i ? "bg-primary" : "bg-slate-200"}`}
                 />
               ))}
             </div>

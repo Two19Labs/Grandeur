@@ -6,9 +6,9 @@ interface PageHeroProps {
 }
 
 const PageHero = ({ title, subtitle }: PageHeroProps) => (
-  <section className="relative overflow-hidden pt-28 pb-12 md:pt-36 md:pb-16 bg-slate-950 border-b border-white/5">
-    {/* Background grids & glows */}
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(30,58,138,0.2),_transparent_50%)]" />
+  <section className="relative overflow-hidden pt-28 pb-12 md:pt-36 md:pb-16 gradient-hero border-b border-primary/20">
+    {/* Clean blue theme with subtle opacity overlay */}
+    <div className="absolute inset-0 bg-black/10" />
     <div 
       className="absolute inset-0 opacity-[0.03]" 
       style={{ 
@@ -30,12 +30,12 @@ const PageHero = ({ title, subtitle }: PageHeroProps) => (
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, type: "spring", stiffness: 100, damping: 15 }}
-        className="text-sm md:text-base text-slate-400 max-w-2xl mx-auto font-medium leading-relaxed px-4"
+        className="text-sm md:text-base text-white/80 max-w-2xl mx-auto font-medium leading-relaxed px-4"
       >
         {subtitle}
       </motion.p>
       
-      {/* Decorative gold/yellow subtle accent line */}
+      {/* Decorative gold line */}
       <motion.div 
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}

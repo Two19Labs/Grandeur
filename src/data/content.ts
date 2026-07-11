@@ -5,14 +5,13 @@
 
 export const NAV_LINKS = [
   { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
-  { label: "Projects", path: "/projects" },
+  { label: "About Us", path: "/about-us" },
+  { label: "What We Do", path: "/what-we-do" },
   { label: "Knowledge Hub", path: "/knowledge-hub" },
   { label: "Achievements", path: "/achievements" },
-  { label: "Events", path: "/events" },
-  { label: "Alumni", path: "/alumni" },
   { label: "Team", path: "/team" },
-  { label: "Join Us", path: "/join" },
+  { label: "Alumni", path: "/alumni" },
+  { label: "Contact Us", path: "/contact-us" },
 ];
 
 export const STATS = [

@@ -10,15 +10,13 @@ import Footer from "@/components/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
 import Index from "./pages/Index";
 import About from "./pages/About";
-import Projects from "./pages/Projects";
+import WhatWeDo from "./pages/WhatWeDo";
+import KnowledgeHub from "./pages/KnowledgeHub";
 import Achievements from "./pages/Achievements";
 import Alumni from "./pages/Alumni";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
-import KnowledgeHub from "./pages/KnowledgeHub";
-import Events from "./pages/Events";
-import Join from "./pages/Join";
 import FloatingGlow from "@/components/FloatingGlow";
 
 const queryClient = new QueryClient();
@@ -46,15 +44,13 @@ const AppRoutes = () => {
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<PageWrapper><Index /></PageWrapper>} />
-        <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
-        <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
+        <Route path="/about-us" element={<PageWrapper><About /></PageWrapper>} />
+        <Route path="/what-we-do" element={<PageWrapper><WhatWeDo /></PageWrapper>} />
+        <Route path="/knowledge-hub" element={<PageWrapper><KnowledgeHub /></PageWrapper>} />
         <Route path="/achievements" element={<PageWrapper><Achievements /></PageWrapper>} />
         <Route path="/alumni" element={<PageWrapper><Alumni /></PageWrapper>} />
         <Route path="/team" element={<PageWrapper><Team /></PageWrapper>} />
-        <Route path="/contact" element={<PageWrapper><Contact /></PageWrapper>} />
-        <Route path="/knowledge-hub" element={<PageWrapper><KnowledgeHub /></PageWrapper>} />
-        <Route path="/events" element={<PageWrapper><Events /></PageWrapper>} />
-        <Route path="/join" element={<PageWrapper><Join /></PageWrapper>} />
+        <Route path="/contact-us" element={<PageWrapper><Contact /></PageWrapper>} />
         <Route path="*" element={<PageWrapper><NotFound /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
